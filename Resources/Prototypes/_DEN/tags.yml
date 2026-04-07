@@ -53,3 +53,6 @@
 
 - type: Tag
   id: ScienceTool
+
+- type: Tag
+  id: Flash
