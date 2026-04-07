@@ -13,7 +13,6 @@
     - Hair
     - HeadTop
     - HeadSide
-    - ears
   - type: Butcherable # Butchering it lowers it
     butcherDelay: 0.5
     butcheringType: Knife
