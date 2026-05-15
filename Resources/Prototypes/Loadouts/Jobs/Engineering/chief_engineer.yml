@@ -2,11 +2,18 @@
 - type: loadoutEffectGroup
   id: MasterCE
   effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:RoleTimeRequirement
-      role: JobChiefEngineer
-      time: 20h
+  # Begin DEN: Use PlayerRequirements
+  - !type:PlayerRequirementLoadoutEffect
+    requirement: !type:PlayerJobPlaytimeRequirement
+      job: ChiefEngineer
+      minTime: 20h
+      requirementType: Loadout
+  # - !type:JobRequirementLoadoutEffect
+  #   requirement:
+  #     !type:RoleTimeRequirement
+  #     role: JobChiefEngineer
+  #     time: 20h
+  # End DEN
 
 # Jumpsuit
 - type: loadout

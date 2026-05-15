@@ -3,10 +3,16 @@
   name: job-name-chef
   description: job-description-chef
   playTimeTracker: JobChef
-  requirements:
-    - !type:DepartmentTimeRequirement
-      department: Civilian
-      time: 0.5h
+  # Begin DEN: Use PlayerRequirements
+  # requirements:
+  #   - !type:DepartmentTimeRequirement
+  #     department: Civilian
+  #     time: 0.5h
+  playerRequirements:
+  - !type:PlayerDepartmentPlaytimeRequirement
+    department: Civilian
+    minTime: 0.5h
+  # End DEN
   startingGear: ChefGear
   icon: "JobIconChef"
   supervisors: job-supervisors-hop

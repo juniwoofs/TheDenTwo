@@ -1,3 +1,4 @@
+using Content.Shared._DEN.Requirements.PlayerRequirements;
 using Content.Shared.Guidebook;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
@@ -48,7 +49,16 @@ public sealed partial class AntagPrototype : IPrototype
     ///     Requirements that must be met to opt in to this antag role.
     /// </summary>
     [DataField, Access(typeof(SharedRoleSystem), Other = AccessPermissions.None)]
+    [Obsolete("Use PlayerRequirements instead")] // DEN
     public HashSet<JobRequirement>? Requirements;
+
+    // Begin DEN: Use PlayerRequirements
+    /// <summary>
+    ///     A list of PlayerRequirements for this role.
+    /// </summary>
+    [DataField("playerRequirements")]
+    public List<IPlayerRequirement>? PlayerRequirements;
+    // End DEN
 
     /// <summary>
     /// Optional list of guides associated with this antag. If the guides are opened, the first entry in this list

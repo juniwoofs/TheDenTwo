@@ -3,13 +3,21 @@
   name: job-name-technical-assistant
   description: job-description-technical-assistant
   playTimeTracker: JobTechnicalAssistant
-  requirements:
-    - !type:OverallPlaytimeRequirement
-      time: 1h
-    - !type:DepartmentTimeRequirement
-      department: Engineering
-      time: 10h
-      inverted: true # stop playing intern if you're good at engineering!
+  # Begin DEN: Use PlayerRequirements
+  # requirements:
+  #   - !type:OverallPlaytimeRequirement
+  #     time: 1h
+  #   - !type:DepartmentTimeRequirement
+  #     department: Engineering
+  #     time: 10h
+  #     inverted: true # stop playing intern if you're good at engineering!
+  playerRequirements:
+  - !type:PlayerOverallPlaytimeRequirement
+    minTime: 1h
+  - !type:PlayerDepartmentPlaytimeRequirement
+    department: Engineering
+    maxTime: 10h
+  # End DEN
   startingGear: TechnicalAssistantGear
   icon: "JobIconTechnicalAssistant"
   supervisors: job-supervisors-engineering

@@ -12,6 +12,7 @@ namespace Content.Shared.Preferences.Loadouts.Effects;
 /// <summary>
 /// Checks for a job requirement to be met such as playtime.
 /// </summary>
+[Obsolete("Use PlayerRequirementLoadoutEffect")] // DEN
 public sealed partial class JobRequirementLoadoutEffect : LoadoutEffect
 {
     [DataField(required: true)]

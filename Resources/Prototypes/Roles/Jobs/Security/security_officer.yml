@@ -3,10 +3,16 @@
   name: job-name-security
   description: job-description-security
   playTimeTracker: JobSecurityOfficer
-  requirements:
-    - !type:DepartmentTimeRequirement
-      department: Security
-      time: 4h
+  # Begin DEN: Use PlayerRequirements
+  # requirements:
+  #   - !type:DepartmentTimeRequirement
+  #     department: Security
+  #     time: 4h
+  playerRequirements:
+  - !type:PlayerDepartmentPlaytimeRequirement
+    department: Security
+    minTime: 4h
+  # End DEN
   startingGear: SecurityOfficerGear
   icon: "JobIconSecurityOfficer"
   supervisors: job-supervisors-hos

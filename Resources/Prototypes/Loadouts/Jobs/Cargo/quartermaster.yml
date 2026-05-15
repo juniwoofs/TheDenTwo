@@ -2,11 +2,18 @@
 - type: loadoutEffectGroup
   id: MasterQM
   effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:RoleTimeRequirement
-      role: JobQuartermaster
-      time: 20h
+  # Begin DEN: Use PlayerRequirements
+  - !type:PlayerRequirementLoadoutEffect
+    requirement: !type:PlayerJobPlaytimeRequirement
+      job: Quartermaster
+      minTime: 20h
+      requirementType: Loadout
+  # - !type:JobRequirementLoadoutEffect
+  #   requirement:
+  #     !type:RoleTimeRequirement
+  #     role: JobQuartermaster
+  #     time: 20h
+  # End DEN
 
 # Jumpsuit
 - type: loadout

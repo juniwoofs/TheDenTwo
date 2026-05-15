@@ -1,11 +1,18 @@
 - type: loadoutEffectGroup
   id: SeniorJanitorial
   effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:RoleTimeRequirement
-      role: JobJanitor
-      time: 52h # 1 hour per week for 1 year
+  # Begin DEN: Use PlayerRequirements
+  - !type:PlayerRequirementLoadoutEffect
+    requirement: !type:PlayerJobPlaytimeRequirement
+      job: Janitor
+      minTime: 52h
+      requirementType: Loadout
+  # - !type:JobRequirementLoadoutEffect
+  #   requirement:
+  #     !type:RoleTimeRequirement
+  #     role: JobJanitor
+  #     time: 52h # 1 hour per week for 1 year
+  # End DEN
 
 # Head
 - type: loadout

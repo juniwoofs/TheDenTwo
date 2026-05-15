@@ -5,9 +5,14 @@
   setPreference: true
   objective: roles-antag-initial-infected-objective
   guides: [ Zombies ]
-  requirements:
-  - !type:OverallPlaytimeRequirement
-    time: 1h
+  # Begin DEN: Use PlayerRequirements
+  # requirements:
+  # - !type:OverallPlaytimeRequirement
+  #   time: 1h
+  playerRequirements:
+  - !type:PlayerOverallPlaytimeRequirement
+    minTime: 1h
+  # End DEN
 
 - type: antag
   id: Zombie

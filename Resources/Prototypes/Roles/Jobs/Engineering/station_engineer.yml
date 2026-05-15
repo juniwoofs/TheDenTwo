@@ -3,10 +3,16 @@
   name: job-name-engineer
   description: job-description-engineer
   playTimeTracker: JobStationEngineer
-  requirements:
-    - !type:DepartmentTimeRequirement
-      department: Engineering
-      time: 2.5h
+  # Begin DEN: Use PlayerRequirements
+  # requirements:
+  #   - !type:DepartmentTimeRequirement
+  #     department: Engineering
+  #     time: 2.5h
+  playerRequirements:
+  - !type:PlayerDepartmentPlaytimeRequirement
+    department: Engineering
+    minTime: 2.5h
+  # End DEN
   startingGear: StationEngineerGear
   icon: "JobIconStationEngineer"
   supervisors: job-supervisors-ce

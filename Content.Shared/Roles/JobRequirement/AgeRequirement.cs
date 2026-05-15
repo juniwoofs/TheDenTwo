@@ -12,6 +12,7 @@ namespace Content.Shared.Roles;
 /// </summary>
 [UsedImplicitly]
 [Serializable, NetSerializable]
+[Obsolete("Use PlayerAgeRequirement instead")] // DEN
 public sealed partial class AgeRequirement : JobRequirement
 {
     [DataField(required: true)]

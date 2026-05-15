@@ -2,21 +2,35 @@
 - type: loadoutEffectGroup
   id: GreyTider
   effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:RoleTimeRequirement
-      role: JobPassenger
-      time: 10h # silly reward for people who play passenger a lot
+  # Begin DEN: Use PlayerRequirements
+  - !type:PlayerRequirementLoadoutEffect
+    requirement: !type:PlayerJobPlaytimeRequirement
+      job: Passenger
+      minTime: 10h
+      requirementType: Loadout
+  # - !type:JobRequirementLoadoutEffect
+  #   requirement:
+  #     !type:RoleTimeRequirement
+  #     role: JobPassenger
+  #     time: 10h # silly reward for people who play passenger a lot
+  # End DEN
 
 # Head of Greytide (for grey mantle)
 - type: loadoutEffectGroup
   id: MasterGrey
   effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:RoleTimeRequirement
-      role: JobPassenger
-      time: 20h # fun mantle for the most experienced greytiders
+  # Begin DEN: Use PlayerRequirements
+  - !type:PlayerRequirementLoadoutEffect
+    requirement: !type:PlayerJobPlaytimeRequirement
+      job: Passenger
+      minTime: 20h
+      requirementType: Loadout
+  # - !type:JobRequirementLoadoutEffect
+  #   requirement:
+  #     !type:RoleTimeRequirement
+  #     role: JobPassenger
+  #     time: 20h # fun mantle for the most experienced greytiders
+  # End DEN
 
 # Face
 - type: loadout

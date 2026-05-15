@@ -32,3 +32,41 @@
       - Crowbar
       - Crowbar
       - Crowbar
+
+- type: entityTrait
+  id: DebugRequirementsPlaytime
+  name: trait-debug-requirements-playtime-name
+  characterEditorSelectable: false
+  functions: []
+  requirements:
+  - !type:PlayerDepartmentPlaytimeRequirement
+    department: Command
+    minTime: 86400
+  - !type:PlayerJobPlaytimeRequirement
+    job: Clown
+    maxTime: 8340
+  - !type:PlayerOverallPlaytimeRequirement
+    minTime: 3600
+    maxTime: 14400
+
+- type: entityTrait
+  id: DebugRequirementsProfile
+  name: trait-debug-requirements-profile-name
+  characterEditorSelectable: false
+  functions: []
+  requirements:
+  - !type:PlayerAgeRequirement
+    max: 60
+  - !type:PlayerSpeciesRequirement
+    species:
+    - Human
+    - Vulpkanin
+    - SlimePerson
+  - !type:PlayerTraitRequirement
+    inverted: true
+    traits:
+    - PoorVision
+    - Blindness
+    count: !type:RangeCountRequirement
+      min: 2
+      max: 8

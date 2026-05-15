@@ -13,11 +13,18 @@
 - type: loadout
   id: ReporterPressFedora
   effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:RoleTimeRequirement
-      role: JobReporter
-      time: 10h
+  # Begin DEN: Use PlayerRequirements
+  - !type:PlayerRequirementLoadoutEffect
+    requirement: !type:PlayerJobPlaytimeRequirement
+      job: Reporter
+      minTime: 10h
+      requirementType: Loadout
+  # - !type:JobRequirementLoadoutEffect
+  #   requirement:
+  #     !type:RoleTimeRequirement
+  #     role: JobReporter
+  #     time: 10h
+  # End DEN
   equipment:
     head: ClothingHeadHatFedoraPress
 
@@ -25,10 +32,17 @@
 - type: loadout
   id: ReporterPressVest
   effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:RoleTimeRequirement
-      role: JobReporter
-      time: 35h
+  # Begin DEN: Use PlayerRequirements
+  - !type:PlayerRequirementLoadoutEffect
+    requirement: !type:PlayerJobPlaytimeRequirement
+      job: Reporter
+      minTime: 35h
+      requirementType: Loadout
+  # - !type:JobRequirementLoadoutEffect
+  #   requirement:
+  #     !type:RoleTimeRequirement
+  #     role: JobReporter
+  #     time: 35h
+  # End DEN
   equipment:
     outerClothing: ClothingOuterVestPress

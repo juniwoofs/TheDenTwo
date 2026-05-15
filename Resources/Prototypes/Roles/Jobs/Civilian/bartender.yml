@@ -3,10 +3,16 @@
   name: job-name-bartender
   description: job-description-bartender
   playTimeTracker: JobBartender
-  requirements:
-    - !type:DepartmentTimeRequirement
-      department: Civilian
-      time: 0.5h
+  # Begin DEN: Use PlayerRequirements
+  # requirements:
+  #   - !type:DepartmentTimeRequirement
+  #     department: Civilian
+  #     time: 0.5h
+  playerRequirements:
+  - !type:PlayerDepartmentPlaytimeRequirement
+    department: Civilian
+    minTime: 0.5h
+  # End DEN
   startingGear: BartenderGear
   icon: "JobIconBartender"
   supervisors: job-supervisors-hop

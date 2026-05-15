@@ -2,38 +2,69 @@
 - type: loadoutEffectGroup
   id: SeniorPhysician
   effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:RoleTimeRequirement
-      role: JobChemist
-      time: 6h
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:RoleTimeRequirement
-      role: JobMedicalDoctor
-      time: 6h
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:DepartmentTimeRequirement
+  # Begin DEN: Use PlayerRequirements
+  - !type:PlayerRequirementLoadoutEffect
+    requirement: !type:PlayerJobPlaytimeRequirement
+      job: Chemist
+      minTime: 6h
+      requirementType: Loadout
+  - !type:PlayerRequirementLoadoutEffect
+    requirement: !type:PlayerJobPlaytimeRequirement
+      job: MedicalDoctor
+      minTime: 6h
+      requirementType: Loadout
+  - !type:PlayerRequirementLoadoutEffect
+    requirement: !type:PlayerDepartmentPlaytimeRequirement
       department: Medical
-      time: 60h
+      minTime: 60h
+      requirementType: Loadout
+  # - !type:JobRequirementLoadoutEffect
+  #   requirement:
+  #     !type:RoleTimeRequirement
+  #     role: JobChemist
+  #     time: 6h
+  # - !type:JobRequirementLoadoutEffect
+  #   requirement:
+  #     !type:RoleTimeRequirement
+  #     role: JobMedicalDoctor
+  #     time: 6h
+  # - !type:JobRequirementLoadoutEffect
+  #   requirement:
+  #     !type:DepartmentTimeRequirement
+  #     department: Medical
+  #     time: 60h
+  # End DEN
 
 # Mid-level timer for players who have a solid amount of experience
 - type: loadoutEffectGroup
   id: MedicalJourneymanTimer
   effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:RoleTimeRequirement
-      role: JobMedicalDoctor
-      time: 20h
+  # Begin DEN: Use PlayerRequirements
+  - !type:PlayerRequirementLoadoutEffect
+    requirement: !type:PlayerJobPlaytimeRequirement
+      job: MedicalDoctor
+      minTime: 20h
+      requirementType: Loadout
+  # - !type:JobRequirementLoadoutEffect
+  #   requirement:
+  #     !type:RoleTimeRequirement
+  #     role: JobMedicalDoctor
+  #     time: 20h
+  # End DEN
 
 # Mid-level timer for CMO
 - type: loadoutEffectGroup
   id: MasterCMO
   effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:RoleTimeRequirement
-      role: JobChiefMedicalOfficer
-      time: 20h
+  # Begin DEN: Use PlayerRequirements
+  - !type:PlayerRequirementLoadoutEffect
+    requirement: !type:PlayerJobPlaytimeRequirement
+      job: ChiefMedicalOfficer
+      minTime: 20h
+      requirementType: Loadout
+  # - !type:JobRequirementLoadoutEffect
+  #   requirement:
+  #     !type:RoleTimeRequirement
+  #     role: JobChiefMedicalOfficer
+  #     time: 20h
+  # End DEN

@@ -53,7 +53,7 @@
   functions:
   - !type:ApplyStatusEffectTrait
     statusEffects:
-    - StatusEffectHemophiliaTrait
+    - TraitStatusEffectHemophilia
 
 - type: entityTrait
   id: ImpairedMobility
@@ -103,7 +103,7 @@
   functions:
   - !type:ApplyStatusEffectTrait
     statusEffects:
-    - PainNumbnessTraitStatusEffect
+    - TraitStatusEffectPainNumbness
 
 - type: entityTrait
   id: Paracusia

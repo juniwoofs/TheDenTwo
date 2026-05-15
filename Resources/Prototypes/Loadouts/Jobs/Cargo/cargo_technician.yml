@@ -2,21 +2,38 @@
 - type: loadoutEffectGroup
   id: SeniorCargo
   effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:RoleTimeRequirement
-      role: JobCargoTechnician
-      time: 21600 #6 hrs
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:RoleTimeRequirement
-      role: JobSalvageSpecialist
-      time: 21600 #6 hrs
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:DepartmentTimeRequirement
+  # Begin DEN: Use PlayerRequirements
+  - !type:PlayerRequirementLoadoutEffect
+    requirement: !type:PlayerJobPlaytimeRequirement
+      job: CargoTechnician
+      minTime: 6h
+      requirementType: Loadout
+  - !type:PlayerRequirementLoadoutEffect
+    requirement: !type:PlayerJobPlaytimeRequirement
+      job: SalvageSpecialist
+      minTime: 6h
+      requirementType: Loadout
+  - !type:PlayerRequirementLoadoutEffect
+    requirement: !type:PlayerDepartmentPlaytimeRequirement
       department: Cargo
-      time: 216000 # 60 hrs
+      minTime: 60h
+      requirementType: Loadout
+  # - !type:JobRequirementLoadoutEffect
+  #   requirement:
+  #     !type:RoleTimeRequirement
+  #     role: JobCargoTechnician
+  #     time: 21600 #6 hrs
+  # - !type:JobRequirementLoadoutEffect
+  #   requirement:
+  #     !type:RoleTimeRequirement
+  #     role: JobSalvageSpecialist
+  #     time: 21600 #6 hrs
+  # - !type:JobRequirementLoadoutEffect
+  #   requirement:
+  #     !type:DepartmentTimeRequirement
+  #     department: Cargo
+  #     time: 216000 # 60 hrs
+  # End DEN
 
 # Head
 - type: loadout

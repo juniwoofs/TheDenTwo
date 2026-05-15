@@ -14,6 +14,7 @@ namespace Content.Shared.Roles;
 /// </summary>
 [UsedImplicitly]
 [Serializable, NetSerializable]
+[Obsolete("Use PlayerSpeciesRequirement instead")] // DEN
 public sealed partial class SpeciesRequirement : JobRequirement
 {
     [DataField(required: true)]

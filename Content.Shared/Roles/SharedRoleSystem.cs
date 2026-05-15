@@ -17,7 +17,7 @@ using Robust.Shared.Utility;
 
 namespace Content.Shared.Roles;
 
-public abstract class SharedRoleSystem : EntitySystem
+public abstract partial class SharedRoleSystem : EntitySystem // DEN: Make partial
 {
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
@@ -672,6 +672,7 @@ public abstract class SharedRoleSystem : EntitySystem
     /// <summary>
     /// Returns the list of requirements for a role, or null. May be altered by requirement overrides.
     /// </summary>
+    [Obsolete("Use GetRolePlayerRequirements instead")] // DEN
     public HashSet<JobRequirement>? GetRoleRequirements(JobPrototype job)
     {
         if (_requirementOverride != null && _requirementOverride.Jobs.TryGetValue(job.ID, out var req))
@@ -682,6 +683,7 @@ public abstract class SharedRoleSystem : EntitySystem
 
     // TODO ROLES Change to readonly?
     /// <inheritdoc cref="GetRoleRequirements(JobPrototype)"/>
+    [Obsolete("Use GetRolePlayerRequirements instead")] // DEN
     public HashSet<JobRequirement>? GetRoleRequirements(AntagPrototype antag)
     {
         if (_requirementOverride != null && _requirementOverride.Antags.TryGetValue(antag.ID, out var req))
@@ -692,6 +694,7 @@ public abstract class SharedRoleSystem : EntitySystem
 
     // TODO ROLES Change to readonly?
     /// <inheritdoc cref="GetRoleRequirements(JobPrototype)"/>
+    [Obsolete("Use GetRolePlayerRequirements instead")] // DEN
     public HashSet<JobRequirement>? GetRoleRequirements(ProtoId<JobPrototype> jobId)
     {
         return _prototypes.TryIndex(jobId, out var job) ? GetRoleRequirements(job) : null;
@@ -699,6 +702,7 @@ public abstract class SharedRoleSystem : EntitySystem
 
     // TODO ROLES Change to readonly?
     /// <inheritdoc cref="GetRoleRequirements(JobPrototype)"/>
+    [Obsolete("Use GetRolePlayerRequirements instead")] // DEN
     public HashSet<JobRequirement>? GetRoleRequirements(ProtoId<AntagPrototype> antagId)
     {
         return _prototypes.TryIndex(antagId, out var antag) ? GetRoleRequirements(antag) : null;

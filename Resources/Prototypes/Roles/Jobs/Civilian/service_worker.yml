@@ -3,10 +3,16 @@
   name: job-name-serviceworker
   description: job-description-serviceworker
   playTimeTracker: JobServiceWorker
-  requirements:
-  - !type:DepartmentTimeRequirement
+  # Begin DEN: Use PlayerRequirements
+  # requirements:
+  #   - !type:DepartmentTimeRequirement
+  #     department: Civilian
+  #     time: 0.5h
+  playerRequirements:
+  - !type:PlayerDepartmentPlaytimeRequirement
     department: Civilian
-    time: 0.5h
+    minTime: 0.5h
+  # End DEN
   startingGear: ServiceWorkerGear
   icon: "JobIconServiceWorker"
   supervisors: job-supervisors-service

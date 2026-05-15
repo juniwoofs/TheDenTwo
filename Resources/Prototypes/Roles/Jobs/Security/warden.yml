@@ -3,13 +3,22 @@
   name: job-name-warden
   description: job-description-warden
   playTimeTracker: JobWarden
-  requirements:
-    - !type:RoleTimeRequirement
-      role: JobSecurityOfficer
-      time: 5h
-    - !type:DepartmentTimeRequirement
-      department: Security
-      time: 10h
+  # Begin DEN: Use PlayerRequirements
+  # requirements:
+  #   - !type:RoleTimeRequirement
+  #     role: JobSecurityOfficer
+  #     time: 5h
+  #   - !type:DepartmentTimeRequirement
+  #     department: Security
+  #     time: 10h
+  playerRequirements:
+  - !type:PlayerJobPlaytimeRequirement
+    job: SecurityOfficer
+    minTime: 5h
+  - !type:PlayerDepartmentPlaytimeRequirement
+    department: Security
+    minTime: 10h
+  # End DEN
   weight: 5
   startingGear: WardenGear
   icon: "JobIconWarden"

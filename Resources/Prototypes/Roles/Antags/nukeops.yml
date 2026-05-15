@@ -4,9 +4,14 @@
   antagonist: true
   setPreference: true
   objective: roles-antag-nuclear-operative-objective
-  requirements:
-  - !type:OverallPlaytimeRequirement
-    time: 5h
+  # Begin DEN: Use PlayerRequirements
+  # requirements:
+  # - !type:OverallPlaytimeRequirement
+  #   time: 5h
+  playerRequirements:
+  - !type:PlayerOverallPlaytimeRequirement
+    minTime: 5h
+  # End DEN
   guides: [ NuclearOperatives ]
 
 - type: antag
@@ -16,11 +21,19 @@
   setPreference: true
   objective: roles-antag-nuclear-operative-agent-objective
   requirements:
-  - !type:OverallPlaytimeRequirement
-    time: 5h
-  - !type:RoleTimeRequirement
-    role: JobChemist
-    time: 3h
+  # Begin DEN: Use PlayerRequirements
+  # - !type:OverallPlaytimeRequirement
+  #   time: 5h
+  # - !type:RoleTimeRequirement
+  #   role: JobChemist
+  #   time: 3h
+  playerRequirements:
+  - !type:PlayerOverallPlaytimeRequirement
+    minTime: 5h
+  - !type:PlayerJobPlaytimeRequirement
+    job: Chemist
+    minTime: 3h
+  # End DEN
   guides: [ NuclearOperatives ]
 
 - type: antag
@@ -29,13 +42,21 @@
   antagonist: true
   setPreference: true
   objective: roles-antag-nuclear-operative-commander-objective
-  requirements:
-  - !type:OverallPlaytimeRequirement
-    time: 5h
-  - !type:DepartmentTimeRequirement
+  # Begin DEN: Use PlayerRequirements
+  # requirements:
+  # - !type:OverallPlaytimeRequirement
+  #   time: 5h
+  # - !type:DepartmentTimeRequirement
+  #   department: Security
+  #   time: 5h
+  playerRequirements:
+  - !type:PlayerOverallPlaytimeRequirement
+    minTime: 5h
+  - !type:PlayerDepartmentPlaytimeRequirement
     department: Security
-    time: 5h
+    minTime: 5h
   # should be changed to nukie playtime when thats tracked (wyci)
+  # End DEN
   guides: [ NuclearOperatives ]
 
 - type: startingGear

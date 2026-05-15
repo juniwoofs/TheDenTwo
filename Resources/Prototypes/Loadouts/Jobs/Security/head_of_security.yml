@@ -2,11 +2,18 @@
 - type: loadoutEffectGroup
   id: MasterHoS
   effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:RoleTimeRequirement
-      role: JobHeadOfSecurity
-      time: 20h
+  # Begin DEN: Use PlayerRequirements
+  - !type:PlayerRequirementLoadoutEffect
+    requirement: !type:PlayerJobPlaytimeRequirement
+      job: HeadOfSecurity
+      minTime: 20h
+      requirementType: Loadout
+  # - !type:JobRequirementLoadoutEffect
+  #   requirement:
+  #     !type:RoleTimeRequirement
+  #     role: JobHeadOfSecurity
+  #     time: 20h
+  # End DEN
 
 # Jumpsuit
 - type: loadout

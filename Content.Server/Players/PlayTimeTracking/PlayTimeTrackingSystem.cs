@@ -7,6 +7,7 @@ using Content.Server.GameTicking;
 using Content.Server.GameTicking.Events;
 using Content.Server.Preferences.Managers;
 using Content.Server.Station.Events;
+using Content.Shared._DEN.Requirements.Managers;
 using Content.Shared.CCVar;
 using Content.Shared.GameTicking;
 using Content.Shared.Mobs;
@@ -27,7 +28,7 @@ namespace Content.Server.Players.PlayTimeTracking;
 /// <summary>
 /// Connects <see cref="PlayTimeTrackingManager"/> to the simulation state. Reports trackers and such.
 /// </summary>
-public sealed class PlayTimeTrackingSystem : EntitySystem
+public sealed partial class PlayTimeTrackingSystem : EntitySystem // DEN: Make partial
 {
     [Dependency] private readonly IAdminManager _adminManager = default!;
     [Dependency] private readonly IAfkManager _afk = default!;
@@ -35,6 +36,7 @@ public sealed class PlayTimeTrackingSystem : EntitySystem
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly IServerPreferencesManager _preferencesManager = default!;
     [Dependency] private readonly IPrototypeManager _prototypes = default!;
+    [Dependency] private readonly IPlayerRequirementManager _requirements = default!; // DEN
     [Dependency] private readonly SharedRoleSystem _roles = default!;
     [Dependency] private readonly PlayTimeTrackingManager _tracking = default!;
 
@@ -249,15 +251,25 @@ public sealed class PlayTimeTrackingSystem : EntitySystem
             playTimes = new Dictionary<string, TimeSpan>();
         }
 
+        // Begin DEN: This is a guard clause now.
         var requirements = _roles.GetRoleRequirements(job);
-        return JobRequirements.TryRequirementsMet(
+        if (!JobRequirements.TryRequirementsMet(
             requirements,
             playTimes,
             out _,
             EntityManager,
             _prototypes,
             (HumanoidCharacterProfile?)
-            _preferencesManager.GetPreferences(player.UserId).SelectedCharacter);
+            _preferencesManager.GetPreferences(player.UserId).SelectedCharacter))
+            return false;
+        // End DEN
+        // Begin DEN: Use PlayerRequirements
+        var playerReqs = _roles.GetRolePlayerRequirements(job);
+        if (playerReqs != null && !PassesRequirements(player, playerReqs))
+            return false;
+
+        return true;
+        // End DEN
     }
 
     /// <summary>
@@ -277,15 +289,25 @@ public sealed class PlayTimeTrackingSystem : EntitySystem
             playTimes = new Dictionary<string, TimeSpan>();
         }
 
+        // Begin DEN: This is a guard clause now.
         var requirements = _roles.GetRoleRequirements(antag);
-        return JobRequirements.TryRequirementsMet(
+        if (!JobRequirements.TryRequirementsMet(
             requirements,
             playTimes,
             out _,
             EntityManager,
             _prototypes,
             (HumanoidCharacterProfile?)
-            _preferencesManager.GetPreferences(player.UserId).SelectedCharacter);
+            _preferencesManager.GetPreferences(player.UserId).SelectedCharacter))
+            return false;
+        // End DEN
+        // Begin DEN: Use PlayerRequirements
+        var playerReqs = _roles.GetRolePlayerRequirements(antag);
+        if (playerReqs != null && !PassesRequirements(player, playerReqs))
+            return false;
+
+        return true;
+        // End DEN
     }
 
     public HashSet<ProtoId<JobPrototype>> GetDisallowedJobs(ICommonSession player)
@@ -294,18 +316,21 @@ public sealed class PlayTimeTrackingSystem : EntitySystem
         if (!_cfg.GetCVar(CCVars.GameRoleTimers))
             return roles;
 
-        if (!_tracking.TryGetTrackerTimes(player, out var playTimes))
-        {
-            Log.Error($"Unable to check playtimes {Environment.StackTrace}");
-            playTimes = new Dictionary<string, TimeSpan>();
-        }
+        // DEN: Commented out because we're using contexts now
+        // if (!_tracking.TryGetTrackerTimes(player, out var playTimes))
+        // {
+        //     Log.Error($"Unable to check playtimes {Environment.StackTrace}");
+        //     playTimes = new Dictionary<string, TimeSpan>();
+        // }
 
+        // Begin DEN: Use PlayerRequirements
+        var context = _requirements.GetPlayerContext(player);
         foreach (var job in _prototypes.EnumeratePrototypes<JobPrototype>())
         {
-            if (JobRequirements.TryRequirementsMet(job, playTimes, out _, EntityManager, _prototypes, (HumanoidCharacterProfile?) _preferencesManager.GetPreferences(player.UserId).SelectedCharacter))
+            if (IsJobAllowed(player, job, context))
                 roles.Add(job.ID);
         }
-
+        // End DEN
         return roles;
     }
 
@@ -315,20 +340,21 @@ public sealed class PlayTimeTrackingSystem : EntitySystem
             return;
 
         var player = _playerManager.GetSessionById(userId);
-        if (!_tracking.TryGetTrackerTimes(player, out var playTimes))
-        {
-            // Sorry mate but your playtimes haven't loaded.
-            Log.Error($"Playtimes weren't ready yet for {player} on roundstart!");
-            playTimes ??= new Dictionary<string, TimeSpan>();
-        }
+        // DEN: Commented out because we're using contexts now
+        // if (!_tracking.TryGetTrackerTimes(player, out var playTimes))
+        // {
+        //     // Sorry mate but your playtimes haven't loaded.
+        //     Log.Error($"Playtimes weren't ready yet for {player} on roundstart!");
+        //     playTimes ??= new Dictionary<string, TimeSpan>();
+        // }
 
+        // Begin DEN: Use PlayerRequirements
+        var context = _requirements.GetPlayerContext(player);
         for (var i = 0; i < jobs.Count; i++)
         {
-            if (_prototypes.Resolve(jobs[i], out var job)
-                && JobRequirements.TryRequirementsMet(job, playTimes, out _, EntityManager, _prototypes, (HumanoidCharacterProfile?) _preferencesManager.GetPreferences(userId).SelectedCharacter))
-            {
+            if (_prototypes.Resolve(jobs[i], out var job) && IsJobAllowed(player, job, context))
                 continue;
-            }
+            // End DEN
 
             jobs.RemoveSwap(i);
             i--;

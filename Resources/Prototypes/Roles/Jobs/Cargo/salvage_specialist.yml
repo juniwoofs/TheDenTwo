@@ -3,10 +3,16 @@
   name: job-name-salvagespec
   description: job-description-salvagespec
   playTimeTracker: JobSalvageSpecialist
-  requirements:
-    - !type:DepartmentTimeRequirement
-      department: Cargo
-      time: 2.5h
+  # Begin DEN: Use PlayerRequirements
+  # requirements:
+  #   - !type:DepartmentTimeRequirement
+  #     department: Cargo
+  #     time: 2.5h
+  playerRequirements:
+  - !type:PlayerDepartmentPlaytimeRequirement
+    department: Cargo
+    minTime: 2.5h
+  # End DEN
   icon: "JobIconShaftMiner"
   startingGear: SalvageSpecialistGear
   supervisors: job-supervisors-qm

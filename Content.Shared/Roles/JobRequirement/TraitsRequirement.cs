@@ -15,7 +15,7 @@ namespace Content.Shared.Roles;
 /// </summary>
 [UsedImplicitly]
 [Serializable, NetSerializable]
-[Obsolete("Use EntityTraitsRequirement instead")] // DEN
+[Obsolete("Use PlayerTraitRequirement instead")] // DEN
 public sealed partial class TraitsRequirement : JobRequirement
 {
     [DataField(required: true)]

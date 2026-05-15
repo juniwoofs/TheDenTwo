@@ -6,6 +6,7 @@ using Robust.Shared.Utility;
 
 namespace Content.Shared.Roles;
 
+[Obsolete("Use PlayerRequirements instead")] // DEN
 public static class JobRequirements
 {
     /// <summary>
@@ -62,6 +63,7 @@ public static class JobRequirements
 /// </summary>
 [ImplicitDataDefinitionForInheritors]
 [Serializable, NetSerializable]
+[Obsolete("Use PlayerRequirements instead")] // DEN
 public abstract partial class JobRequirement
 {
     [DataField]

@@ -8,7 +8,10 @@
   name: trait-morph-human-canid-name
   description: trait-morph-human-canid-desc
   category: SpeciesMorphs
-  allowedSpecies: [Human]
+  requirements:
+  - !type:PlayerSpeciesRequirement
+    hideIfFailed: true
+    species: [Human]
   cost: 1
   whitelist:
     components:
@@ -22,7 +25,10 @@
   name: trait-morph-human-felinid-name
   description: trait-morph-human-felinid-desc
   category: SpeciesMorphs
-  allowedSpecies: [Human]
+  requirements:
+  - !type:PlayerSpeciesRequirement
+    hideIfFailed: true
+    species: [Human]
   cost: 1
   whitelist:
     components:
@@ -36,7 +42,10 @@
   name: trait-morph-human-kitsune-name
   description: trait-morph-human-kitsune-desc
   category: SpeciesMorphs
-  allowedSpecies: [Human]
+  requirements:
+  - !type:PlayerSpeciesRequirement
+    hideIfFailed: true
+    species: [Human]
   cost: 1
   whitelist:
     components:
@@ -50,7 +59,10 @@
   name: trait-morph-human-oni-name
   description: trait-morph-human-oni-desc
   category: SpeciesMorphs
-  allowedSpecies: [Human]
+  requirements:
+  - !type:PlayerSpeciesRequirement
+    hideIfFailed: true
+    species: [Human]
   cost: 1
   whitelist:
     components:

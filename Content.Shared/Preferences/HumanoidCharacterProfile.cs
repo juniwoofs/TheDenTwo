@@ -21,6 +21,7 @@ using Robust.Shared.Utility;
 using Robust.Shared;
 using YamlDotNet.RepresentationModel;
 using Content.Shared._DEN.Traits.Prototypes;
+using Content.Shared._DEN.Requirements.Managers;
 
 namespace Content.Shared.Preferences
 {
@@ -489,6 +490,7 @@ namespace Content.Shared.Preferences
         {
             var configManager = collection.Resolve<IConfigurationManager>();
             var prototypeManager = collection.Resolve<IPrototypeManager>();
+            var requirements = collection.Resolve<IPlayerRequirementManager>(); // DEN
 
             if (!prototypeManager.TryIndex(Species, out var speciesPrototype) || speciesPrototype.RoundStart == false)
             {
@@ -605,15 +607,20 @@ namespace Content.Shared.Preferences
                 .Where(id => prototypeManager.TryIndex(id, out var antag) && antag.SetPreference)
                 .ToList();
 
+            // Begin DEN: Trait validation
             // var traits = TraitPreferences
             //              .Where(prototypeManager.HasIndex)
-            //              .ToList(); // DEN
+            //              .ToList();
+
+            var context = requirements.GetPlayerContext(session);
+            context.Profile = this;
 
             var traits = EntityTraitPreferences
                 .Where(t => prototypeManager.TryIndex(t, out var trait)
                     && trait.Selectable
-                    && (trait.AllowedSpecies is null || trait.AllowedSpecies.Contains(Species)))
-                .ToList(); // DEN
+                    && !SharedPlayerRequirementManager.ShouldHide(context, trait.Requirements))
+                .ToList();
+            // End DEN
 
             Name = name;
             FlavorText = flavortext;

@@ -3,9 +3,14 @@
   name: job-name-lawyer
   description: job-description-lawyer
   playTimeTracker: JobLawyer
-  requirements:
-    - !type:OverallPlaytimeRequirement
-      time: 2.5h
+  # Begin DEN: Use PlayerRequirements
+  # requirements:
+  #   - !type:OverallPlaytimeRequirement
+  #     time: 2.5h
+  playerRequirements:
+  - !type:PlayerOverallPlaytimeRequirement
+    minTime: 2.5h
+  # End DEN
   startingGear: LawyerGear
   icon: "JobIconLawyer"
   supervisors: job-supervisors-hop

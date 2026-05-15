@@ -3,11 +3,17 @@
   name: job-name-intern
   description: job-description-intern
   playTimeTracker: JobMedicalIntern
-  requirements:
-    - !type:DepartmentTimeRequirement
-      department: Medical
-      time: 10h
-      inverted: true # stop playing intern if you're good at med!
+  # Begin DEN: Use PlayerRequirements
+  # requirements:
+  #   - !type:DepartmentTimeRequirement
+  #     department: Medical
+  #     time: 10h
+  #     inverted: true # stop playing intern if you're good at med!
+  playerRequirements:
+  - !type:PlayerDepartmentPlaytimeRequirement
+    department: Medical
+    maxTime: 10h
+  # End DEN
   startingGear: MedicalInternGear
   icon: "JobIconMedicalIntern"
   supervisors: job-supervisors-medicine

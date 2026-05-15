@@ -46,8 +46,7 @@ public sealed partial class TraitCategoryBox : BoxContainer
 
         foreach (var trait in traits)
         {
-            if (!trait.Selectable || trait.AllowedSpecies is not null
-                    && (_profile?.Species is null || !trait.AllowedSpecies.Contains(_profile.Species)))
+            if (!trait.Selectable)
                 continue;
 
             var selector = new EntityTraitSelector(trait);

@@ -3,13 +3,22 @@
   name: job-name-rd
   description: job-description-rd
   playTimeTracker: JobResearchDirector
-  requirements:
-  - !type:RoleTimeRequirement
-    role: JobScientist
-    time: 5h
-  - !type:DepartmentTimeRequirement
+  # Begin DEN: Use PlayerRequirements
+  # requirements:
+  # - !type:RoleTimeRequirement
+  #   role: JobScientist
+  #   time: 5h
+  # - !type:DepartmentTimeRequirement
+  #   department: Science
+  #   time: 10h
+  playerRequirements:
+  - !type:PlayerJobPlaytimeRequirement
+    job: Scientist
+    minTime: 5h
+  - !type:PlayerDepartmentPlaytimeRequirement
     department: Science
-    time: 10h
+    minTime: 10h
+  # End DEN
   weight: 10
   startingGear: ResearchDirectorGear
   icon: "JobIconResearchDirector"

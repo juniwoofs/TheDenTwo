@@ -2,11 +2,18 @@
 - type: loadoutEffectGroup
   id: SeniorResearcher
   effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:DepartmentTimeRequirement
+  # Begin DEN: Use PlayerRequirements
+  - !type:PlayerRequirementLoadoutEffect
+    requirement: !type:PlayerDepartmentPlaytimeRequirement
       department: Science
-      time: 60h
+      minTime: 60h
+      requirementType: Loadout
+  # - !type:JobRequirementLoadoutEffect
+  #   requirement:
+  #     !type:DepartmentTimeRequirement
+  #     department: Science
+  #     time: 60h
+  # End DEN
 
 # Head
 - type: startingGear

@@ -2,16 +2,28 @@
 - type: loadoutEffectGroup
   id: SeniorOfficer
   effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:RoleTimeRequirement
-      role: JobWarden
-      time: 6h
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:DepartmentTimeRequirement
+  # Begin DEN: Use PlayerRequirements
+  - !type:PlayerRequirementLoadoutEffect
+    requirement: !type:PlayerJobPlaytimeRequirement
+      job: Warden
+      minTime: 6h
+      requirementType: Loadout
+  - !type:PlayerRequirementLoadoutEffect
+    requirement: !type:PlayerDepartmentPlaytimeRequirement
       department: Security
-      time: 60h
+      minTime: 60h
+      requirementType: Loadout
+  # - !type:JobRequirementLoadoutEffect
+  #   requirement:
+  #     !type:RoleTimeRequirement
+  #     role: JobWarden
+  #     time: 6h
+  # - !type:JobRequirementLoadoutEffect
+  #   requirement:
+  #     !type:DepartmentTimeRequirement
+  #     department: Security
+  #     time: 60h
+  # End DEN
 
 # Head
 - type: loadout

@@ -3,13 +3,21 @@
   name: job-name-cadet
   description: job-description-cadet
   playTimeTracker: JobSecurityCadet
-  requirements:
-    - !type:OverallPlaytimeRequirement
-      time: 10h
-    - !type:DepartmentTimeRequirement
-      department: Security
-      time: 10h
-      inverted: true # stop playing intern if you're good at security!
+  # Begin DEN: Use PlayerRequirements
+  # requirements:
+  #   - !type:OverallPlaytimeRequirement
+  #     time: 10h
+  #   - !type:DepartmentTimeRequirement
+  #     department: Security
+  #     time: 10h
+  #     inverted: true # stop playing intern if you're good at security!
+  playerRequirements:
+  - !type:PlayerOverallPlaytimeRequirement
+    minTime: 10h
+  - !type:PlayerDepartmentPlaytimeRequirement
+    department: Security
+    maxTime: 10h
+  # End DEN
   startingGear: SecurityCadetGear
   icon: "JobIconSecurityCadet"
   supervisors: job-supervisors-security

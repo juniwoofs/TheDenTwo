@@ -9,12 +9,6 @@
   artist: lobby-state-background-denos-artist
 
 - type: lobbyBackground
-  id: TheSix
-  background: /Textures/LobbyScreens/thesix.webp
-  title: lobby-state-background-thesix-title
-  artist: lobby-state-background-thesix-artist
-
-- type: lobbyBackground
   id: TheTrip
   background: /Textures/LobbyScreens/thetrip.webp
   title: lobby-state-background-thetrip-title
@@ -61,9 +55,3 @@
   background: /Textures/LobbyScreens/plushpuddle.webp
   title: lobby-state-background-plushpuddle-title
   artist: lobby-state-background-plushpuddle-artist
-
-- type: lobbyBackground
-  id: ThatCoolBar
-  background: /Textures/LobbyScreens/thatcoolbar.webp
-  title: lobby-state-background-thatcoolbar-title
-  artist: lobby-state-background-thatcoolbar-artist

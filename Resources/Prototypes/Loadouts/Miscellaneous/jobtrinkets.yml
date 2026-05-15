@@ -12,11 +12,18 @@
 - type: loadout
   id: FlowerWaterClown
   effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:RoleTimeRequirement
-      role: JobClown
-      time: 4h
+  # Begin DEN: Use PlayerRequirements
+  - !type:PlayerRequirementLoadoutEffect
+    requirement: !type:PlayerJobPlaytimeRequirement
+      job: Clown
+      minTime: 4h
+      requirementType: Loadout
+  # - !type:JobRequirementLoadoutEffect
+  #   requirement:
+  #     !type:RoleTimeRequirement
+  #     role: JobClown
+  #     time: 4h
+  # End DEN
   storage:
     back:
     - SprayFlowerPin
@@ -24,11 +31,18 @@
 - type: loadout
   id: SecStar
   effects:
-    - !type:JobRequirementLoadoutEffect
-      requirement:
-        !type:DepartmentTimeRequirement
-        department: Security
-        time: 100h
+  # Begin DEN: Use PlayerRequirements
+  - !type:PlayerRequirementLoadoutEffect
+    requirement: !type:PlayerDepartmentPlaytimeRequirement
+      department: Security
+      minTime: 100h
+      requirementType: Loadout
+    # - !type:JobRequirementLoadoutEffect
+    #   requirement:
+    #     !type:DepartmentTimeRequirement
+    #     department: Security
+    #     time: 100h
+  # End DEN
   storage:
     back:
     - Dinkystar

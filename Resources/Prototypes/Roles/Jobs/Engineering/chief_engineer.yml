@@ -3,16 +3,28 @@
   name: job-name-ce
   description: job-description-ce
   playTimeTracker: JobChiefEngineer
-  requirements:
-    - !type:RoleTimeRequirement
-      role: JobAtmosphericTechnician
-      time: 2.5h
-    - !type:RoleTimeRequirement
-      role: JobStationEngineer
-      time: 5h
-    - !type:DepartmentTimeRequirement
-      department: Engineering
-      time: 10h
+  # Begin DEN: Use PlayerRequirements
+  # requirements:
+  #   - !type:RoleTimeRequirement
+  #     role: JobAtmosphericTechnician
+  #     time: 2.5h
+  #   - !type:RoleTimeRequirement
+  #     role: JobStationEngineer
+  #     time: 5h
+  #   - !type:DepartmentTimeRequirement
+  #     department: Engineering
+  #     time: 10h
+  playerRequirements:
+  - !type:PlayerJobPlaytimeRequirement
+    job: AtmosphericTechnician
+    minTime: 2.5h
+  - !type:PlayerJobPlaytimeRequirement
+    job: StationEngineer
+    minTime: 5h
+  - !type:PlayerDepartmentPlaytimeRequirement
+    department: Engineering
+    minTime: 10h
+  # End DEN
   weight: 10
   startingGear: ChiefEngineerGear
   icon: "JobIconChiefEngineer"

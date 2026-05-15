@@ -1,10 +1,7 @@
+using Content.Shared._DEN.Requirements.Managers;
 using Content.Shared._DEN.Traits.EntitySystems;
-using Content.Shared._DEN.Traits.Prototypes;
 using Content.Shared.GameTicking;
-using Content.Shared.Hands.EntitySystems;
-using Content.Shared.Humanoid;
 using Content.Shared.Roles;
-using Content.Shared.Whitelist;
 using Robust.Shared.Prototypes;
 
 #pragma warning disable IDE1006 // Naming Styles
@@ -14,6 +11,7 @@ namespace Content.Server._DEN.Traits.EntitySystems;
 public sealed partial class TraitSystem : SharedTraitSystem
 {
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private readonly IPlayerRequirementManager _requirements = default!;
 
     public override void Initialize()
     {
@@ -45,14 +43,12 @@ public sealed partial class TraitSystem : SharedTraitSystem
                 continue;
             }
 
-            if (trait.AllowedSpecies != null)
+            var context = _requirements.GetPlayerContext(args.Player);
+            context.Profile = args.Profile;
+            if (!SharedPlayerRequirementManager.CheckRequirements(context, trait.Requirements))
             {
-                if (!TryComp<HumanoidProfileComponent>(mob, out var profile)
-                    || !trait.AllowedSpecies.Contains(profile.Species))
-                {
-                    Log.Error($"Tried to spawn trait {traitId} on {ToPrettyString(mob)} with invalid species: {profile?.Species ?? "null"}!");
-                    continue;
-                }
+                Log.Error($"Tried to spawn trait {traitId} on {ToPrettyString(mob)}, but we failed the requirements to do so!");
+                continue;
             }
 
             TryAddTrait(mob, traitId, out _);

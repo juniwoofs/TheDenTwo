@@ -3,10 +3,16 @@
   name: job-name-paramedic
   description: job-description-paramedic
   playTimeTracker: JobParamedic
-  requirements:
-  - !type:DepartmentTimeRequirement
+  # Begin DEN: Use PlayerRequirements
+  # requirements:
+  # - !type:DepartmentTimeRequirement
+  #   department: Medical
+  #   time: 2.5h
+  playerRequirements:
+  - !type:PlayerDepartmentPlaytimeRequirement
     department: Medical
-    time: 2.5h
+    minTime: 2.5h
+  # End DEN
   startingGear: ParamedicGear
   icon: "JobIconParamedic"
   supervisors: job-supervisors-cmo

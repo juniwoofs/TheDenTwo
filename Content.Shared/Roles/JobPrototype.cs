@@ -1,3 +1,4 @@
+using Content.Shared._DEN.Requirements.PlayerRequirements;
 using Content.Shared.Access;
 using Content.Shared.Guidebook;
 using Content.Shared.Players.PlayTimeTracking;
@@ -48,7 +49,16 @@ namespace Content.Shared.Roles
         ///     Requirements for the job.
         /// </summary>
         [DataField, Access(typeof(SharedRoleSystem), Other = AccessPermissions.None)]
+        [Obsolete("Use PlayerRequirements instead")] // DEN
         public HashSet<JobRequirement>? Requirements;
+
+        // Begin DEN: Use PlayerRequirements
+        /// <summary>
+        ///     A list of PlayerRequirements for this job.
+        /// </summary>
+        [DataField("playerRequirements")]
+        public List<IPlayerRequirement>? PlayerRequirements;
+        // End DEN
 
         /// <summary>
         ///     When true - the station will have anouncement about arrival of this player.

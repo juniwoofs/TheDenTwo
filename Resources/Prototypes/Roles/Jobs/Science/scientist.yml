@@ -3,10 +3,16 @@
   name: job-name-scientist
   description: job-description-scientist
   playTimeTracker: JobScientist
-  requirements:
-    - !type:DepartmentTimeRequirement
-      department: Science
-      time: 2.5h
+  # Begin DEN: Use PlayerRequirements
+  # requirements:
+  #   - !type:DepartmentTimeRequirement
+  #     department: Science
+  #     time: 2.5h
+  playerRequirements:
+  - !type:PlayerDepartmentPlaytimeRequirement
+    department: Science
+    minTime: 2.5h
+  # End DEN
   startingGear: ScientistGear
   icon: "JobIconScientist"
   supervisors: job-supervisors-rd

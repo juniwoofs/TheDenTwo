@@ -5,16 +5,28 @@
   name: job-name-cmo
   description: job-description-cmo
   playTimeTracker: JobChiefMedicalOfficer
-  requirements:
-    - !type:RoleTimeRequirement
-      role: JobChemist
-      time: 2.5h
-    - !type:RoleTimeRequirement
-      role: JobMedicalDoctor
-      time: 5h
-    - !type:DepartmentTimeRequirement
-      department: Medical
-      time: 10h
+  # Begin DEN: Use PlayerRequirements
+  # requirements:
+  #   - !type:RoleTimeRequirement
+  #     role: JobChemist
+  #     time: 2.5h
+  #   - !type:RoleTimeRequirement
+  #     role: JobMedicalDoctor
+  #     time: 5h
+  #   - !type:DepartmentTimeRequirement
+  #     department: Medical
+  #     time: 10h
+  playerRequirements:
+  - !type:PlayerJobPlaytimeRequirement
+    job: Chemist
+    minTime: 2.5h
+  - !type:PlayerJobPlaytimeRequirement
+    job: MedicalDoctor
+    minTime: 5h
+  - !type:PlayerDepartmentPlaytimeRequirement
+    department: Medical
+    minTime: 10h
+  # End DEN
   weight: 10
   startingGear: CMOGear
   icon: "JobIconChiefMedicalOfficer"

@@ -1,3 +1,4 @@
+using Content.Shared._DEN.Requirements.PlayerRequirements;
 using Content.Shared._DEN.Traits.TraitFunctions;
 using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Traits;
@@ -52,13 +53,6 @@ public sealed partial class EntityTraitPrototype : IPrototype
     public ProtoId<TraitCategoryPrototype>? Category;
 
     /// <summary>
-    /// A list of species that allowed to take this trait. If null, then all species may take it.
-    /// TODO: Replace with a more robust "requirement" system.
-    /// </summary>
-    [DataField]
-    public HashSet<ProtoId<SpeciesPrototype>>? AllowedSpecies = null;
-
-    /// <summary>
     /// A list of functions associated with this trait.
     /// </summary>
     [DataField("functions")]
@@ -69,4 +63,10 @@ public sealed partial class EntityTraitPrototype : IPrototype
     /// </summary>
     [DataField("characterEditorSelectable")]
     public bool Selectable = true;
+
+    /// <summary>
+    ///     A list of requirements to use this trait.
+    /// </summary>
+    [DataField]
+    public List<IPlayerRequirement> Requirements = new();
 }

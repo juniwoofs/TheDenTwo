@@ -28,6 +28,8 @@ using Content.Shared.FeedbackSystem;
 using Content.Shared.IoC;
 using Content.Shared.Players.PlayTimeTracking;
 using Content.Shared.Players.RateLimiting;
+using Content.Shared._DEN.Requirements.Managers;
+using Content.Client._DEN.Requirements.Managers;
 
 namespace Content.Client.IoC
 {
@@ -66,6 +68,7 @@ namespace Content.Client.IoC
             collection.Register<ClientsidePlaytimeTrackingManager>();
             collection.Register<ClientFeedbackManager>();
             collection.Register<ISharedFeedbackManager, ClientFeedbackManager>();
+            collection.Register<IPlayerRequirementManager, PlayerRequirementManager>(); // DEN
         }
     }
 }

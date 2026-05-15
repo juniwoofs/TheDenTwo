@@ -3,9 +3,14 @@
   name: job-name-mime
   description: job-description-mime
   playTimeTracker: JobMime
-  requirements:
-    - !type:OverallPlaytimeRequirement
-      time: 4h
+  # Begin DEN: Use PlayerRequirements
+  # requirements:
+  #   - !type:OverallPlaytimeRequirement
+  #     time: 4h
+  playerRequirements:
+  - !type:PlayerOverallPlaytimeRequirement
+    minTime: 4h
+  # End DEN
   startingGear: MimeGear
   icon: "JobIconMime"
   supervisors: job-supervisors-hop

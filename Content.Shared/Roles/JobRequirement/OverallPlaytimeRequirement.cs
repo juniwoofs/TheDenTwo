@@ -11,6 +11,7 @@ namespace Content.Shared.Roles;
 
 [UsedImplicitly]
 [Serializable, NetSerializable]
+[Obsolete("Use PlayerOverallPlaytimeRequirement instead")] // DEN
 public sealed partial class OverallPlaytimeRequirement : JobRequirement
 {
     /// <inheritdoc cref="DepartmentTimeRequirement.Time"/>
