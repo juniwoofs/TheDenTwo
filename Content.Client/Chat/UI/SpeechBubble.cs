@@ -25,7 +25,8 @@ namespace Content.Client.Chat.UI
             Emote,
             Say,
             Whisper,
-            Looc
+            Looc,
+            SubtleOOC
         }
 
         /// <summary>
@@ -79,6 +80,11 @@ namespace Content.Client.Chat.UI
 
                 case SpeechType.Looc:
                     return new TextSpeechBubble(message, senderEntity, "emoteBox", Color.FromHex("#48d1cc"));
+
+                // DEN Start - Add subtle OOC
+                case SpeechType.SubtleOOC:
+                    return new TextSpeechBubble(message, senderEntity, "emoteBox", Color.LightPink);
+                // DEN End
 
                 default:
                     throw new ArgumentOutOfRangeException();

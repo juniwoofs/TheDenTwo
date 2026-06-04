@@ -1,3 +1,4 @@
+using Content.Client.RichText;
 using Content.Client.UserInterface.Systems.Chat.Controls;
 using Content.Shared.Chat;
 using Content.Shared.Input;
@@ -117,7 +118,7 @@ public partial class ChatBox : UIWidget
         formatted.PushColor(color);
         formatted.AddMarkupOrThrow(message);
         formatted.Pop();
-        Contents.AddMessage(formatted, tagsAllowed: null);
+        Contents.AddMessage(formatted, tagsAllowed: UserFormattableTags.ChatAllowedTags); // DEN - Whitelist specific tags
     }
 
     public void Focus(ChatSelectChannel? channel = null)

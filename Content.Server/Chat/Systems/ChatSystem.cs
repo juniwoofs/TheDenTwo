@@ -3,6 +3,8 @@ using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;
 using Content.Server.Chat.Managers;
 using Content.Server.GameTicking;
+using Content.Server.Ghost;
+using Content.Server.Interaction; // DEN - Use interaction system's range checks
 using Content.Server.Speech.EntitySystems;
 using Content.Server.Station.Systems;
 using Content.Shared.ActionBlocker;
@@ -46,6 +48,7 @@ public sealed partial class ChatSystem : SharedChatSystem
     [Dependency] private SharedAudioSystem _audio = default!;
     [Dependency] private ReplacementAccentSystem _wordreplacement = default!;
     [Dependency] private ExamineSystemShared _examineSystem = default!;
+    [Dependency] private InteractionSystem _interaction = null!; // DEN - Use interaction system's range checks
     [Dependency] private EntityQuery<GhostHearingComponent> _ghostHearingQuery = default!;
 
     private bool _loocEnabled = true;
@@ -179,7 +182,7 @@ public sealed partial class ChatSystem : SharedChatSystem
             message = message[1..];
         }
 
-        bool shouldCapitalize = (desiredType != InGameICChatType.Emote);
+        bool shouldCapitalize = (desiredType != InGameICChatType.Emote && desiredType != InGameICChatType.Subtle); // DEN - Add subtle
         bool shouldPunctuate = _configurationManager.GetCVar(CCVars.ChatPunctuation);
         // Capitalizing the word I only happens in English, so we check language here
         bool shouldCapitalizeTheWordI = (!CultureInfo.CurrentCulture.IsNeutralCulture && CultureInfo.CurrentCulture.Parent.Name == "en")
@@ -219,6 +222,11 @@ public sealed partial class ChatSystem : SharedChatSystem
             case InGameICChatType.Emote:
                 SendEntityEmote(source, message, range, nameOverride, hideLog: hideLog, ignoreActionBlocker: ignoreActionBlocker);
                 break;
+            // DEN Start: add subtle
+            case InGameICChatType.Subtle:
+                SendEntitySubtle(source, message, range, nameOverride, hideLog: hideLog, ignoreActionBlocker: ignoreActionBlocker);
+                break;
+            // DEN End
         }
     }
 
@@ -273,6 +281,11 @@ public sealed partial class ChatSystem : SharedChatSystem
             case InGameOOCChatType.Looc:
                 SendLOOC(source, player, message, hideChat);
                 break;
+            // DEN Start: add subtle OOC
+            case InGameOOCChatType.SubtleOOC:
+                SendSubtleOOC(source, player, message, hideChat);
+                break;
+            // DEN End
         }
     }
 }

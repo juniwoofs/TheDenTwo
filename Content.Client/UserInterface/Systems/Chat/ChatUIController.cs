@@ -79,9 +79,11 @@ public sealed partial class ChatUIController : UIController
         {SharedChatSystem.WhisperPrefix, ChatSelectChannel.Whisper},
         {SharedChatSystem.ConsolePrefix, ChatSelectChannel.Console},
         {SharedChatSystem.LOOCPrefix, ChatSelectChannel.LOOC},
+        {SharedChatSystem.SubtleOOCPrefix, ChatSelectChannel.SubtleOOC}, // DEN - Add subtle OOC
         {SharedChatSystem.OOCPrefix, ChatSelectChannel.OOC},
         {SharedChatSystem.EmotesPrefix, ChatSelectChannel.Emotes},
         {SharedChatSystem.EmotesAltPrefix, ChatSelectChannel.Emotes},
+        {SharedChatSystem.SubtlePrefix, ChatSelectChannel.Subtle}, // DEN - Add subtle
         {SharedChatSystem.AdminPrefix, ChatSelectChannel.Admin},
         {SharedChatSystem.RadioCommonPrefix, ChatSelectChannel.Radio},
         {SharedChatSystem.DeadPrefix, ChatSelectChannel.Dead}
@@ -93,8 +95,10 @@ public sealed partial class ChatUIController : UIController
         {ChatSelectChannel.Whisper, SharedChatSystem.WhisperPrefix},
         {ChatSelectChannel.Console, SharedChatSystem.ConsolePrefix},
         {ChatSelectChannel.LOOC, SharedChatSystem.LOOCPrefix},
+        {ChatSelectChannel.SubtleOOC, SharedChatSystem.SubtleOOCPrefix}, // DEN - Add subtle OOC
         {ChatSelectChannel.OOC, SharedChatSystem.OOCPrefix},
         {ChatSelectChannel.Emotes, SharedChatSystem.EmotesPrefix},
+        {ChatSelectChannel.Subtle, SharedChatSystem.SubtlePrefix}, // DEN - Add subtle
         {ChatSelectChannel.Admin, SharedChatSystem.AdminPrefix},
         {ChatSelectChannel.Radio, SharedChatSystem.RadioCommonPrefix},
         {ChatSelectChannel.Dead, SharedChatSystem.DeadPrefix}
@@ -544,6 +548,11 @@ public sealed partial class ChatUIController : UIController
                 CanSendChannels |= ChatSelectChannel.Whisper;
                 CanSendChannels |= ChatSelectChannel.Radio;
                 CanSendChannels |= ChatSelectChannel.Emotes;
+                CanSendChannels |= ChatSelectChannel.Subtle; // DEN - Add subtle/subtle OOC
+                CanSendChannels |= ChatSelectChannel.SubtleOOC; // DEN - Add subtle/subtle OOC
+
+                FilterableChannels |= ChatChannel.Subtle; // DEN - Add subtle/subtle OOC
+                FilterableChannels |= ChatChannel.SubtleOOC; // DEN - Add subtle/subtle OOC
             }
         }
 
@@ -891,6 +900,15 @@ public sealed partial class ChatUIController : UIController
                 break;
 
             case ChatChannel.LOOC:
+                if (_config.GetCVar(CCVars.LoocAboveHeadShow))
+                    AddSpeechBubble(msg, SpeechBubble.SpeechType.Looc);
+                break;
+
+            case ChatChannel.Subtle:
+                AddSpeechBubble(msg, SpeechBubble.SpeechType.Emote);
+                break;
+
+            case ChatChannel.SubtleOOC:
                 if (_config.GetCVar(CCVars.LoocAboveHeadShow))
                     AddSpeechBubble(msg, SpeechBubble.SpeechType.Looc);
                 break;
