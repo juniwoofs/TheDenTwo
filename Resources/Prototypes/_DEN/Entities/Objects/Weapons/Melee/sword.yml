@@ -1,0 +1,226 @@
+- type: entity # Please expect this to need rebalancing...
+  parent: [BaseSword, BaseAntiPsionicWeapon, BaseMantisContraband]
+  id: MantisMeleeGreatsword # The risk/reward option, highly likely to knock you on your ass and get you killed, extremely difficult to use effectively
+  name: Faust # Part of the reason it's so punishing, aside from the challenge, is because antags could possibly use it against psions - it needs to be unreliable
+  description: "A mnemolith greatsword whose unstable resonance makes it treacherous to wield. Faust rebounds violently from any impact that does not strike a psion, whipping back into its bearer even if it merely grazes a wall. It must be properly wielded--without absolute focus, the blade resists. Unmatched against psionic and otherworldly threats, perilous against anything else."
+  components: # Yes the description is long, but players must understand how it works from description alone, and I want it to remain in-universe
+  - type: Grammar # Faust is its name
+    attributes:
+      proper: true
+#  - type: AntiPsionicWeapon # restore with psionic system
+#    punish: true # It'll hurt you if you hit anything non-psionic (a mouse, a wall, etc.)
+#    punishChances: 1 # Every time
+#    punishSelfDamage: 35 # It hits you as hard as you would've hit a psion, because you're psionic
+#    punishStunDuration: 5 # And it stuns you like a noospheric storm
+  - type: MeleeRequiresWield
+    fumbleOnAttempt: true # It'll also stun you if you try to swing it one-handed
+  - type: Wieldable
+    wieldSound:
+      path: /Audio/_DEN/Weapons/Melee/faustwield.ogg
+      params:
+        volume: -2
+        variation: 0.05
+    unwieldSound:
+      path: /Audio/_DEN/Weapons/Melee/faustunwield.ogg
+      params:
+        volume: -2
+        variation: 0.05
+  - type: MeleeWeapon
+    attackRate: 1.5
+    range: 1.85
+    angle: 90
+    maxTargets: 10 # When you see a stat that looks good, just remember that if you hit anything non-psionic, you lose
+    heavyRateModifier: 1 # Same speed
+    heavyRangeModifier: 1 # Same range
+    heavyDamageBaseModifier: 1 # Same damage
+    heavyStaminaCost: 30 # Also you can't spam them or you'll fall over
+    damage:
+      types:
+        Slash: 28 # 18.66 DPS (same as CaptainSabre), or 23.33 DPS against psions (but if you miss, it hits you hard)
+        Holy: 20 # 40 total DPS against psionic supernaturals (no way are you landing every left click on a simplemob)
+        Structural: 30 # 20 structural DPS (but it'll only hurt psionic objects since it can't be thrown)
+    soundHit:
+      path: /Audio/_DEN/Weapons/Melee/fausthit.ogg
+      params:
+        volume: -2
+        variation: 0.05
+    soundSwing:
+      path: /Audio/_DEN/Weapons/Melee/faustmiss.ogg
+      params:
+        volume: -2
+        variation: 0.05
+    soundNoDamage:
+      path: /Audio/_DEN/Weapons/Melee/fausthit.ogg
+      params:
+        volume: -2
+        variation: 0.05
+  - type: DamageOtherOnHit # Unfortunately, throwing Faust still lets it severely injure non-psions at no risk to its wielder
+    staminaCost: 150 # But it's more flavorful to make it too heavy even for an oni with Vigor to throw
+  - type: EmbeddableProjectile # But if you trip and it stabs you, that's your own fault
+    sound:
+      path: /Audio/_DEN/Weapons/Melee/fausthit.ogg
+      params:
+        volume: -2
+        variation: 0.05
+    removalTime: 2
+  - type: EmbedPassiveDamage
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_DEN/Weapons/Melee/fausthit.ogg
+      params:
+        volume: -2
+        variation: 0.05
+  - type: Sprite
+    sprite: _DEN/Objects/Weapons/Melee/Mantis/mantisgreatsword.rsi
+    state: icon
+  - type: Item
+    sprite: _DEN/Objects/Weapons/Melee/Mantis/mantisgreatsword-inhands-64x.rsi
+    size: Ginormous # This doesn't go inside anything except its sheath
+    storedSprite:
+      state: icon
+      sprite: _DEN/Objects/Weapons/Melee/Mantis/mantisgreatsword.rsi # Same sprite, just rotated, because it looks wrong otherwise
+  - type: ThrowingAngle
+    angle: -135
+  - type: MeleeThrowOnHit # Just a tiny knockback to look cool, barely moves anything
+    speed: 6
+    lifetime: 0.05
+  - type: Reflect # A little gift for being brave
+    reflectProb: .25
+    spread: 90
+  - type: Tag
+    tags:
+    - MantisGreatsword
+
+- type: entity
+  parent: [BaseItem, BaseFoldable, BaseMantisContraband]
+  id: MantisMeleeGreatswordSheath # A suitstorage sheath for Faust, in this file because it's basically part of the sword
+  name: foreboding scabbard
+  suffix: Faust, Empty
+  description: "A heavy scabbard reinforced with mu-metal bands that cross over its ornamental eyes, likely as a warning. This psionically insulating metal is only used to contain weapons that would otherwise recoil violently against their housing when drawn. Its stillness feels wrong, as if the scabbard itself is holding its breath. It can be reworked to ride the hip instead with a bit of clever knife tailoring. So heavy it can only be worn over outerwear--and the weapon within so long it must be drawn with telekinesis."
+  components:
+  - type: Foldable
+    canFoldInsideContainer: true
+    foldVerbText: fold-straps-verb
+    unfoldVerbText: unfold-straps-verb
+  - type: FoldableClothing
+    foldedEquippedPrefix: folded
+  - type: Sprite
+    sprite: _DEN/Objects/Weapons/Melee/Mantis/mantisgreatswordsheath.rsi
+    layers:
+    - state: icon
+      map: ["unfoldedLayer"]
+    - state: icon-folded
+      map: ["foldedLayer"]
+      visible: false
+  - type: Item
+    sprite: _DEN/Objects/Weapons/Melee/Mantis/mantisgreatswordsheath.rsi
+    size: Ginormous
+  - type: Clothing
+    quickEquip: true
+    equipDelay: 0.5
+    unequipDelay: 0.5
+    slots:
+    - suitStorage
+  - type: ThrowingAngle
+    angularVelocity: true
+  - type: EmitSoundOnThrow
+    sound:
+      path: /Audio/_DEN/Weapons/Melee/bigswoosh.ogg
+      params:
+        volume: -3
+        variation: 0.05
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Effects/metal_slam1.ogg
+      params:
+        volume: -3
+        pitch: 0.9
+        variation: 0.05
+  - type: EmitSoundOnCollide
+    sound:
+      path: /Audio/Effects/metal_slam4.ogg
+      params:
+        volume: -6
+        pitch: 1.1
+        variation: 0.05
+  - type: Appearance
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []
+      mantisgreatsword: !type:ContainerSlot {}
+  - type: ItemSlots
+    slots:
+      mantisgreatsword:
+        name: clothing-suitstorage-mantisgreatsword
+        insertVerbText: sheath-insert-verb
+        ejectVerbText: sheath-eject-verb
+        insertSound:
+          path: /Audio/_DEN/Weapons/Melee/faustsheath.ogg
+          params:
+            volume: -2
+            variation: 0.05
+        ejectSound:
+          path: /Audio/_DEN/Weapons/Melee/faustunsheath.ogg
+          params:
+            volume: -2
+            variation: 0.05
+        whitelist:
+          tags:
+          - MantisGreatsword
+        priority: 3
+  - type: ItemMapper
+    mapLayers:
+      mantisgreatsword:
+        whitelist:
+          tags:
+          - MantisGreatsword
+    sprite: _DEN/Objects/Weapons/Melee/Mantis/mantisgreatswordsheath.rsi
+  - type: Butcherable # Since Foldable is already used, I have to resort to Butcherable to change to the hip carry
+    butcheringType: Knife
+    spawned:
+    - id: MantisMeleeGreatswordSheathHip
+      amount: 1
+  - type: GuideHelp
+    guides: [ MantisGuide ]
+
+- type: entity
+  parent: MantisMeleeGreatswordSheath
+  id: MantisMeleeGreatswordSheathFilled
+  suffix: Faust, Filled, DO NOT MAP
+  components:
+  - type: ContainerFill
+    containers:
+      mantisgreatsword:
+      - MantisMeleeGreatsword
+
+- type: entity
+  parent: MantisMeleeGreatswordSheath
+  id: MantisMeleeGreatswordSheathHip
+  name: foreboding scabbard (hip carry)
+  suffix: Faust, Empty
+  description: "A heavy scabbard reinforced with mu-metal bands that cross over its ornamental eyes, likely as a warning. This psionically insulating metal is only used to contain weapons that would otherwise recoil violently against their housing when drawn. Suspended from the hip with a thick cloth wrap--traditional when worn with a mantis wolfskin to keep the draw clear of the hat. It can be reworked to ride the back again with a bit of clever knife tailoring. So heavy it can only be worn over outerwear, and the weapon within so long it must be drawn with telekinesis."
+  components:
+  - type: Sprite
+    sprite: _DEN/Objects/Weapons/Melee/Mantis/mantisgreatswordsheath-alt.rsi
+  - type: Item
+    sprite: _DEN/Objects/Weapons/Melee/Mantis/mantisgreatswordsheath-alt.rsi
+  - type: ItemMapper
+    sprite: _DEN/Objects/Weapons/Melee/Mantis/mantisgreatswordsheath-alt.rsi
+  - type: Foldable
+    foldVerbText: fold-flip-verb
+    unfoldVerbText: fold-flip-verb
+  - type: Butcherable
+    spawned:
+    - id: MantisMeleeGreatswordSheath
+      amount: 1
+
+- type: entity
+  parent: MantisMeleeGreatswordSheathHip
+  id: MantisMeleeGreatswordSheathHipFilled
+  suffix: Faust, Filled, DO NOT MAP] [Hip Carry
+  components:
+  - type: ContainerFill
+    containers:
+      mantisgreatsword:
+      - MantisMeleeGreatsword
