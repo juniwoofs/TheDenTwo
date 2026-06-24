@@ -7,3 +7,4 @@ food-sequence-cotton-burger-content-plushie-heart-insert = heart
 food-sequence-cotton-burger-content-plushie-ovinia = sheepie
 food-sequence-cotton-burger-content-plushie-teddy-bear = teddy
 food-sequence-cotton-burger-content-plushie-whistler = whistler
+food-sequence-cotton-burger-content-plushie-mantisdoll = doll

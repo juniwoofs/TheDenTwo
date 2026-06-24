@@ -60,6 +60,8 @@
       children:
       - id: PlushieAlienGerm
       - id: PlushieAlienGermMini
+      - id: PlushieDollMantis
+        weight: 0.5
     # DEN End
     - !type:GroupSelector
       children:

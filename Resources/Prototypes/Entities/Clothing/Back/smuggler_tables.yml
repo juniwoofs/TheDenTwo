@@ -160,6 +160,8 @@
     - id: CigarCase
     - id: CigarGoldCase
       weight: 0.25
+    - id: CigPackMnemolith # Den
+      weight: 0.5
 
 - type: entityTable #5x small
   id: RandomSatchelPartyTable

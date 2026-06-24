@@ -54,3 +54,12 @@
   sprites:
   - sprite: _DEN/Objects/Fun/whistlerplushie.rsi
     state: icon
+
+# MANTIS PLUSHIE
+
+- type: foodSequenceElement
+  id: MantisDollPlushie
+  name: food-sequence-cotton-burger-content-plushie-mantisdoll
+  sprites:
+  - sprite: _DEN/Objects/Fun/toys.rsi
+    state: doll_mantis
