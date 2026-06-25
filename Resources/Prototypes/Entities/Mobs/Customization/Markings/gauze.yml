@@ -210,7 +210,7 @@
 - type: marking
   id: GauzeHead
   bodyPart: Head
-  groupWhitelist: [Human, Reptilian, Arachnid, Moth]
+  groupWhitelist: [Human, Reptilian, Arachnid, Moth, Chitinid] # DEN - Chitinid
   coloring:
     default:
       type:
@@ -290,7 +290,7 @@
 - type: marking
   id: GauzeMothBlindfold
   bodyPart: Eyes
-  groupWhitelist: [Moth]
+  groupWhitelist: [Moth, Chitinid] # DEN - Chitinid
   coloring:
     default:
       type:
@@ -303,7 +303,7 @@
 - type: marking
   id: GauzeMothShoulder
   bodyPart: Chest
-  groupWhitelist: [Moth]
+  groupWhitelist: [Moth, Chitinid] # DEN - Chitinid
   coloring:
     default:
       type:
@@ -316,7 +316,7 @@
 - type: marking
   id: GauzeMothStomach
   bodyPart: Chest
-  groupWhitelist: [Moth]
+  groupWhitelist: [Moth, Chitinid] # DEN - Chitinid
   coloring:
     default:
       type:
@@ -329,7 +329,7 @@
 - type: marking
   id: GauzeMothLeftEyePatch
   bodyPart: Eyes
-  groupWhitelist: [Moth]
+  groupWhitelist: [Moth, Chitinid] # DEN - Chitinid
   coloring:
     default:
       type:
@@ -342,7 +342,7 @@
 - type: marking
   id: GauzeMothLeftEyePad
   bodyPart: Eyes
-  groupWhitelist: [Moth]
+  groupWhitelist: [Moth, Chitinid] # DEN - Chitinid
   coloring:
     default:
       type:
@@ -355,7 +355,7 @@
 - type: marking
   id: GauzeMothRightEyePatch
   bodyPart: Eyes
-  groupWhitelist: [Moth]
+  groupWhitelist: [Moth, Chitinid] # DEN - Chitinid
   coloring:
     default:
       type:
@@ -368,7 +368,7 @@
 - type: marking
   id: GauzeMothRightEyePad
   bodyPart: Eyes
-  groupWhitelist: [Moth]
+  groupWhitelist: [Moth, Chitinid] # DEN - Chitinid
   coloring:
     default:
       type:
@@ -381,7 +381,7 @@
 - type: marking
   id: GauzeMothUpperArmRight
   bodyPart: RArm
-  groupWhitelist: [Moth]
+  groupWhitelist: [Moth, Chitinid] # DEN - Chitinid
   coloring:
     default:
       type:
@@ -394,7 +394,7 @@
 - type: marking
   id: GauzeMothUpperArmLeft
   bodyPart: LArm
-  groupWhitelist: [Moth]
+  groupWhitelist: [Moth, Chitinid] # DEN - Chitinid
   coloring:
     default:
       type:
@@ -407,7 +407,7 @@
 - type: marking
   id: GauzeMothUpperLegRight
   bodyPart: RLeg
-  groupWhitelist: [Moth]
+  groupWhitelist: [Moth, Chitinid] # DEN - Chitinid
   coloring:
     default:
       type:
@@ -420,7 +420,7 @@
 - type: marking
   id: GauzeMothUpperLegLeft
   bodyPart: LLeg
-  groupWhitelist: [Moth]
+  groupWhitelist: [Moth, Chitinid] # DEN - Chitinid
   coloring:
     default:
       type:
@@ -433,7 +433,7 @@
 - type: marking
   id: GauzeMothLowerLegRight
   bodyPart: RFoot
-  groupWhitelist: [Moth]
+  groupWhitelist: [Moth, Chitinid] # DEN - Chitinid
   coloring:
     default:
       type:
@@ -446,7 +446,7 @@
 - type: marking
   id: GauzeMothLowerLegLeft
   bodyPart: LFoot
-  groupWhitelist: [Moth]
+  groupWhitelist: [Moth, Chitinid] # DEN - Chitinid
   coloring:
     default:
       type:

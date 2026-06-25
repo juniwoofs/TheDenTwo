@@ -23,6 +23,8 @@
     - Gray
     - Apid
     - Gastropoid
+    # DEN below
+    - Chitinid
 
 - type: loadoutEffectGroup
   id: EffectSpeciesVox

@@ -1,0 +1,19 @@
+- type: species
+  id: Chitinid
+  name: species-name-chitinid
+  roundStart: true
+  #randomviable: false
+  prototype: MobChitinid
+  defaultSkinTone: "#ffda93"
+  dollPrototype: AppearanceChitinid
+  skinColoration: Hues
+  maleFirstNames: NamesChitinidFirstMale
+  femalFirstNames: NamesChitinidFirstFemale
+  naming: first
+  sexes:
+  - Male
+  - Female
+  - Unsexed
+
+# Developer Notes
+#

@@ -1,0 +1,49 @@
+- type: speechVerb
+  id: Chitinid
+  name: chat-speech-verb-name-chitinid
+  speechVerbStrings:
+  - chat-speech-verb-chitinid-1
+  - chat-speech-verb-chitinid-2
+  - chat-speech-verb-chitinid-3
+  - chat-speech-verb-chitinid-4
+
+- type: speechSounds
+  id: Chitinid
+  saySound:
+    path: /Audio/Voice/Talk/speak_1.ogg
+  askSound:
+    path: /Audio/Voice/Talk/speak_1_ask.ogg
+  exclaimSound:
+    path: /Audio/Voice/Talk/speak_1_exclaim.ogg
+
+- type: emoteSounds
+  id: UnisexChitinid
+  params:
+    variation: 0.125
+  sounds:
+    Buzz:
+      path: /Audio/_DEN/Voice/Chitinid/moth_scream.ogg
+    Scream:
+      path: /Audio/Voice/Arachnid/arachnid_scream.ogg
+    Laugh:
+      path: /Audio/_DEN/Voice/Chitinid/moth_laugh.ogg
+    Chitter:
+      path: /Audio/Voice/Arachnid/arachnid_chitter.ogg
+    Click:
+      path: /Audio/Voice/Arachnid/arachnid_click.ogg
+    Crying:
+      collection: FemaleCry
+    Weh:
+      collection: Weh
+    Sneeze:
+      collection: MaleSneezes
+    Cough:
+      collection: MaleCoughs
+    Yawn:
+      collection: MaleYawn
+    Hiss:
+      path: /Audio/Animals/snake_hiss.ogg
+    Gasp:
+      collection: MaleGasp
+    DefaultDeathgasp:
+      collection: MothDeathGasp

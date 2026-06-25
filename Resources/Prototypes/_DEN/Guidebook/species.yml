@@ -1,0 +1,6 @@
+# all Den originating species guidebooks go here.
+
+- type: guideEntry
+  id: Chitinid
+  name: Chitinid
+  text: "/ServerInfo/_DEN/Guidebook/Mobs/Chitinid.xml"

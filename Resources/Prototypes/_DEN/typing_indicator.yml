@@ -1,0 +1,6 @@
+- type: typingIndicator
+  id: chitinid
+  spritePath: /Textures/_DEN/Effects/speech.rsi
+  typingState: chitinid0
+  idleState: chitinid1
+  offset: -.2, 0.1

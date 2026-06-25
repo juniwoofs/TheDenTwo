@@ -5,3 +5,11 @@ chat-manager-entity-subtle-wrap-message = [italic]{ PROPER($entity) ->
 }
 
 chat-manager-entity-subtle-ooc-wrap-message = [italic](OOC) {$entityName} {$message}[/italic]
+
+# Chitinid Start
+chat-speech-verb-name-chitinid = Chitinid
+chat-speech-verb-chitinid-1 = clicks
+chat-speech-verb-chitinid-2 = chitters
+chat-speech-verb-chitinid-3 = hisses
+chat-speech-verb-chitinid-4 = buzzes
+# Chitinid End

@@ -47,6 +47,8 @@ injector-component-needle-drawing-user = You start drawing the needle.
 injector-component-needle-drawing-target = {CAPITALIZE(THE($user))} is trying to use a needle to draw from you!
 injector-component-spray-injecting-user = You start preparing the spray nozzle.
 injector-component-spray-injecting-target = {CAPITALIZE(THE($user))} is trying to place a spray nozzle onto you!
-
+# Den Start - Chitinids
+injector-component-deny-user = Exoskeleton too thick!
+# Den End - Chitinids
 ## Target Popup Success messages
 injector-component-feel-prick-message = You feel a tiny prick!
