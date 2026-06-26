@@ -159,7 +159,7 @@
     color: "#2CFA1F"
     autoRot: true
   - type: BlockInjection
-#  - tpye: Chitinid - need the C# done
+  - type: Chitinid
 
 - type: entity
   parent: OrganBase
