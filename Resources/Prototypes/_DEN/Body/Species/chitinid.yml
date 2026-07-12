@@ -123,6 +123,18 @@
       reagents:
       - ReagentId: InsectBlood
         Quantity: 600
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 250 # little heavier than normal but less so than a diona :3c
+        restitution: 0.0
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
   - type: DamageVisuals
     damageOverlayGroups:
       Brute:

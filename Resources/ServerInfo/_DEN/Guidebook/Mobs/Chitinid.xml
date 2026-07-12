@@ -1,28 +1,24 @@
 <Document>
-  # Chitinid
+ # Chitinid
 
-  <Box>
-    <GuideEntityEmbed Entity="MobChitinid" Caption=""/>
-  </Box>
+<Box>
+  <GuideEntityEmbed Entity="MobChitinid" Caption=""/>
+</Box>
 
-  An industrious worker drone species, the Chitinid are strong diligent workers. Thanks to their homeworld's enviroment, they have grown an acute resistance to radiation, but not without its side effects.
+Chitinids are a formerly hivemind species of noospherically sensitive and industrious worker drones hailing from inimical and highly irradiated worlds within the Milky Way.
 
-  ## Diet
-  - Nothing special.
+## Physiology
 
-  ## Benefits
-  - Takes 80% less Radiation, 10% less Slash.
-  - Their bodies naturally recover from light radiation damage up to a point, once they accumulate enough radiation they must purge it from their systems in the form of a small rock.
-  - Due to their worker drone nature they are Better at pulling and carrying things.
-  - Due to their radioactive homeworld they possess a bio light.
+Chitinids due to their denser and stouter builds, are more apt for manual labour than many of their peers, finding [color=#1e90ff]dragging objects larger than them more easier[/color] than others species would. Though, along with making chitinids heavier on average, their bodies do require more calories to maintain, leading to Chitinids [color=#ffa500]getting hungier at a rate faster than most other species[/color] would.
 
-  ## Drawbacks
-  - Built for work rather than combat their hard shells are weaker to Blunt and piercing damage, they take 25% more piercing and 15% more Blunt damage.
-  - Due to their hard shells normal syringes can not pierce them, requiring hypos to bypass the toughness.
-  - Thanks to their overactive systems they get hungry 33% faster.
-  - The cold does not agree with their biology and makes their movement sluggish, the cold also harms them more than others.
-  - They are deceptivly heavy due to their lifestyle and diet.
-  - The Chitzite they expel is slightly radioactive.
-  - Bug Blood.
+Chitinids possess rounded carapaces shielding their bodies, providing them a [color=#1e90ff]reduction of 10% of all slashing damage[/color]. This carapace, however, was evolved with work in mind rather than combat, leading to chitinids taking [color=#ffa500]25% more piercing and 15% more blunt damage[/color]. Thier carapaces also come with another drawback, the hard chitin [color=#ffa500]prevents piercing by regular syringes, requiring a hypopen for the injection of chemicals[/color]. Chitinid biology also does not play well with colder environments, with [color=#ffa500]lower temperatures slowing and hurting chitinids more than it would other species[/color].
+
+Additionally, due to their origin and evolution on irradiated worlds, Chitinids also produce a gentle glow from a bio-light located within their tails and have a natural resistance to radiation, [color=#1e90ff]taking 80% less radiation damage[/color]. Chitinids have also evolved a special method of dealing with excess radiation in the body.
+
+<Box>
+  <GuideEntityEmbed Entity="Chitzite" Caption=""/>
+</Box>
+
+While living on irradiated worlds would be a challenge or death sentence to most species, Chitinid physiology has evolved to [color=#1e90ff]passively heal from small amounts of radiation[/color]. In the event of higher exposure however, the Chitinid body has evolved to undergo encystation, producing a material known as Chitzite. Chitzite is a small, slightly radioactive crystal formed within the chest cavities of Chitinids. The process of Chitzite formation and expulsion [color=#1e90ff]expells a moderate amount of radiation from the Chitinid body[/color], prolonging the life of over-exposed Chitinids.
 
 </Document>
