@@ -129,7 +129,7 @@
         shape:
           !type:PhysShapeCircle
           radius: 0.35
-        density: 250 # little heavier than normal but less so than a diona :3c
+        density: 250 # 75% heavier than base but less so than a diona :3c
         restitution: 0.0
         mask:
         - MobMask
