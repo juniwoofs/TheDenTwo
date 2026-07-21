@@ -142,11 +142,12 @@
         color: "#808A51"
       Burn:
         sprite: Mobs/Effects/burn_damage.rsi
-  - type: TemperatureDamage # Ants hate the cold
+  - type: Temperature
     currentTemperature: 310.15
+    specificHeat: 46
+  - type: TemperatureDamage # Ants hate the cold
     heatDamageThreshold: 325 # normal heat damage threshold
     coldDamageThreshold: 285 # gets dangerously cold at a higher temp than others
-    specificHeat: 46
     coldDamage:
       types:
         Cold : 1.25 #per second, scales with temperature & other constants
