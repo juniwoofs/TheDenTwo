@@ -16,7 +16,6 @@
   - type: Solution
     id: chitzite
     solution:
-      maxvol: 5
       reagents:
       - ReagentId: Uranium
         Quantity: 2.5

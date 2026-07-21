@@ -142,7 +142,7 @@
         color: "#808A51"
       Burn:
         sprite: Mobs/Effects/burn_damage.rsi
-  - type: Temperature # Ants hate the cold
+  - type: TemperatureDamage # Ants hate the cold
     currentTemperature: 310.15
     heatDamageThreshold: 325 # normal heat damage threshold
     coldDamageThreshold: 285 # gets dangerously cold at a higher temp than others
@@ -158,11 +158,6 @@
       305: 0.6
       290: 0.4
       285: 0.3
-  - type: Butcherable
-    butcheringType: Spike
-    spawned:
-    - id: FoodMeat
-      amount: 5
   - type: UnpoweredFlashlight
   - type: PointLight
     enabled: false
