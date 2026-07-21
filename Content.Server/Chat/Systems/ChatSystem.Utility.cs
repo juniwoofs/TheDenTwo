@@ -2,6 +2,7 @@ using System.Linq;
 using System.Text;
 using Content.Server.Speech.Prototypes;
 using Content.Shared.Chat;
+using Content.Shared._DEN.Earmuffs;
 using Content.Shared.Ghost;
 using Content.Shared.Players;
 using Robust.Shared.Console;
@@ -68,6 +69,16 @@ public sealed partial class ChatSystem
     {
         foreach (var (session, data) in GetRecipients(source, VoiceRange))
         {
+            // DEN Start: VRChat earmuffs, but on Den!
+            if (session.AttachedEntity is not { Valid: true } playerEntity)
+                continue;
+
+            if (TryComp<EarmuffsComponent>(playerEntity, out var earmuffs)
+                && earmuffs.Running && earmuffs.HearRange < data.Range
+                && (channel == ChatChannel.Local || channel == ChatChannel.Emotes))
+                continue;
+            // DEN End
+
             var entRange = MessageRangeCheck(session, data, range);
             if (entRange == MessageRangeCheckResult.Disallowed)
                 continue;

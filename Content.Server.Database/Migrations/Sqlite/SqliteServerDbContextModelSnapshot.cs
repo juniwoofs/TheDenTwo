@@ -798,6 +798,23 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.ToTable("connection_log", (string)null);
                 });
 
+            modelBuilder.Entity("Content.Server.Database.DenuModel+DenuSettings", b =>
+                {
+                    b.Property<Guid>("PlayerUserId")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("player_user_id");
+
+                    b.Property<string>("SettingsJson")
+                        .IsRequired()
+                        .HasColumnType("jsonb")
+                        .HasColumnName("settings");
+
+                    b.HasKey("PlayerUserId")
+                        .HasName("PK_denu_settings");
+
+                    b.ToTable("denu_settings", (string)null);
+                });
+
             modelBuilder.Entity("Content.Server.Database.ConsentData", b =>
                 {
                     b.Property<int>("Id")
@@ -1777,6 +1794,19 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.Navigation("HWId");
 
                     b.Navigation("Server");
+                });
+
+            modelBuilder.Entity("Content.Server.Database.DenuModel+DenuSettings", b =>
+                {
+                    b.HasOne("Content.Server.Database.Player", "Player")
+                        .WithOne()
+                        .HasForeignKey("Content.Server.Database.DenuModel+DenuSettings", "PlayerUserId")
+                        .HasPrincipalKey("Content.Server.Database.Player", "UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("FK_denu_settings_player_player_id");
+
+                    b.Navigation("Player");
                 });
 
             modelBuilder.Entity("Content.Server.Database.Job", b =>

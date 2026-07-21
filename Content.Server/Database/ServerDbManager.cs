@@ -324,6 +324,14 @@ namespace Content.Server.Database
 
         #endregion
 
+        #region Denu Settings
+
+        Task<string> LoadDenuSettingsJsonAsync(Guid userId);
+        Task SaveDenuSettingsJsonAsync(Guid userId, string settingsJson);
+        Task<Dictionary<int, int>> GetProfileSlotToProfileIdMapAsync(Guid userId);
+
+        #endregion
+
         #region IPintel
 
         Task<bool> UpsertIPIntelCache(DateTime time, IPAddress ip, float score);
@@ -999,6 +1007,26 @@ namespace Content.Server.Database
             DbWriteOpsMetric.Inc();
             return RunDbCommand(() => _db.RemoveJobWhitelist(player, job));
         }
+
+        // DEN Start: Denu
+        public Task<string> LoadDenuSettingsJsonAsync(Guid userId)
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.LoadDenuSettingsJsonAsync(userId));
+        }
+
+        public Task SaveDenuSettingsJsonAsync(Guid userId, string settingsJson)
+        {
+            DbWriteOpsMetric.Inc();
+            return RunDbCommand(() => _db.SaveDenuSettingsJsonAsync(userId, settingsJson));
+        }
+
+        public Task<Dictionary<int, int>> GetProfileSlotToProfileIdMapAsync(Guid userId)
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.GetProfileSlotToProfileIdMapAsync(userId));
+        }
+        // DEN End
 
         public Task<bool> UpsertIPIntelCache(DateTime time, IPAddress ip, float score)
         {
