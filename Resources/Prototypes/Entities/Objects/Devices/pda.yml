@@ -45,6 +45,11 @@
       whitelist:
         components:
         - IdCard
+    projectorSlot:
+      priority: -2
+      whitelist:
+        tags:
+        - CivilianHoloprojector
   - type: PdaVisuals
   - type: Item
     size: Small
@@ -53,6 +58,7 @@
       PDA-id: !type:ContainerSlot {}
       PDA-pen: !type:ContainerSlot {}
       PDA-pai: !type:ContainerSlot {}
+      PDA-projector: !type:ContainerSlot {}
       Cartridge-Slot: !type:ContainerSlot {}
       program-container: !type:Container
   - type: ItemSlots

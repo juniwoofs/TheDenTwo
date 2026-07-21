@@ -1,4 +1,5 @@
 using System.Globalization;
+using System.Linq;
 using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;
 using Content.Server.Chat.Managers;
@@ -7,6 +8,7 @@ using Content.Server.Ghost;
 using Content.Server.Interaction; // DEN - Use interaction system's range checks
 using Content.Server.Speech.EntitySystems;
 using Content.Server.Station.Systems;
+using Content.Shared._DEN.Utility;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Administration;
 using Content.Shared.CCVar;
@@ -188,8 +190,13 @@ public sealed partial class ChatSystem : SharedChatSystem
         // Capitalizing the word I only happens in English, so we check language here
         bool shouldCapitalizeTheWordI = (!CultureInfo.CurrentCulture.IsNeutralCulture && CultureInfo.CurrentCulture.Parent.Name == "en")
             || (CultureInfo.CurrentCulture.IsNeutralCulture && CultureInfo.CurrentCulture.Name == "en");
+        
+        message = SanitizeInGameICMessage(source, message, out var emoteStr, shouldCapitalize, shouldPunctuate, shouldCapitalizeTheWordI);
 
-        // DEN: Detailed message system.
+        // DEN: Detailed message system start.
+
+        message = StringUtil.FilterStringTags(message, ChatAllowedTags);
+        
         bool needsRadio = false;
         RadioChannelPrototype? channel = null;
         // We want to do this processing before we try to parse it into a complex message.
@@ -201,21 +208,20 @@ public sealed partial class ChatSystem : SharedChatSystem
                 message = modMessage;
             }
         }
+        
         var complexMessage = ConvertMessageToComplex(message);
-        complexMessage = SanitizeComplexMessage(source, complexMessage, out var emoteStrs, shouldCapitalize, shouldPunctuate, shouldCapitalizeTheWordI);
-
-        // DEN: Send emote strings extracted from the complex message.
-        // Multiple emotes in multiple dialogs works. I hope no one ever actually does this.
-        if (player != null && emoteStrs.Count != 0)
+        
+        if (player != null 
+            && emoteStr != message
+            && emoteStr != null
+            && desiredType is not InGameICChatType.Subtle)
         {
-            foreach (var emoteStr in emoteStrs)
-            {
-                SendEntityEmote(source, emoteStr, range, nameOverride, ignoreActionBlocker);
-            }
+            SendEntityEmote(source, emoteStr, range, nameOverride, ignoreActionBlocker);
         }
 
-        // DEN: Complex message will be empty, rather than a null string.
-        if (complexMessage.Parts.Count == 0)
+        // DEN: Complex message will be empty, rather than a null string. Also eat any message that is only tags.
+        if (complexMessage.Parts.Count == 0 
+            || complexMessage.Parts.All(part => part.Item1 is ChatPart.EmoteTag or ChatPart.DialogTag))
             return;
 
         // DEN: Complex message parsing.
@@ -240,12 +246,11 @@ public sealed partial class ChatSystem : SharedChatSystem
                 // DEN: Complex Speech.
                 SendEntityComplexEmote(source, message, range, nameOverride, hideLog: hideLog, ignoreActionBlocker: ignoreActionBlocker);
                 break;
-            // DEN Start: add subtle
             case InGameICChatType.Subtle:
                 SendEntitySubtle(source, message, range, nameOverride, hideLog: hideLog, ignoreActionBlocker: ignoreActionBlocker);
                 break;
-            // DEN End
         }
+        // DEN End
     }
 
     /// <inheritdoc />

@@ -1923,7 +1923,7 @@
 
 - type: entity
   name: mouse
-  parent: [SimpleMobBase, BaseMobAnimal, SolutionVermin, BaseSlicingRefinable]
+  parent: [BaseMobDetritivore, SimpleMobBase, SolutionVermin, BaseSlicingRefinable] # DEN: BaseMobAnimal -> BaseMobDetritivore
   id: MobMouse
   description: Squeak!
   components:
