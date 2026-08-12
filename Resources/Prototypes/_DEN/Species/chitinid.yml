@@ -8,7 +8,7 @@
   dollPrototype: AppearanceChitinid
   skinColoration: Hues
   maleFirstNames: NamesChitinidFirstMale
-  femalFirstNames: NamesChitinidFirstFemale
+  femaleFirstNames: NamesChitinidFirstFemale
   naming: first
   sexes:
   - Male

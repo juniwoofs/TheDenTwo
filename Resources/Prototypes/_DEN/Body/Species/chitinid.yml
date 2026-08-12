@@ -99,7 +99,7 @@
   - type: TypingIndicator
     proto: chitinid
   - type: Vocal
-    emotesounds:
+    emoteSounds:
       Male: UnisexChitinid
       Female: UnisexChitinid
       Unsexed: UnisexChitinid

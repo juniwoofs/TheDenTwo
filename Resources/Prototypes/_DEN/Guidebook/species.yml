@@ -2,5 +2,5 @@
 
 - type: guideEntry
   id: Chitinid
-  name: Chitinid
+  name: species-name-chitinid
   text: "/ServerInfo/_DEN/Guidebook/Mobs/Chitinid.xml"
