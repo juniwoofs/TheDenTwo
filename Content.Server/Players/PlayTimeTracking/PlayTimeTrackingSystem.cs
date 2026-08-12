@@ -35,7 +35,6 @@ public sealed partial class PlayTimeTrackingSystem : EntitySystem
     [Dependency] private IConfigurationManager _cfg = default!;
     [Dependency] private IPlayerManager _playerManager = default!;
     [Dependency] private IServerPreferencesManager _preferencesManager = default!;
-    [Dependency] private IPrototypeManager _prototypes = default!;
     [Dependency] private IPlayerRequirementManager _requirements = default!; // DEN
     [Dependency] private SharedRoleSystem _roles = default!;
     [Dependency] private PlayTimeTrackingManager _tracking = default!;
@@ -112,7 +111,7 @@ public sealed partial class PlayTimeTrackingSystem : EntitySystem
             if (string.IsNullOrWhiteSpace(role.PlayTimeTrackerId))
                 continue;
 
-            yield return _prototypes.Index<PlayTimeTrackerPrototype>(role.PlayTimeTrackerId).ID;
+            yield return ProtoMan.Index<PlayTimeTrackerPrototype>(role.PlayTimeTrackerId).ID;
         }
     }
 
@@ -258,7 +257,7 @@ public sealed partial class PlayTimeTrackingSystem : EntitySystem
             playTimes,
             out _,
             EntityManager,
-            _prototypes,
+            ProtoMan,
             (HumanoidCharacterProfile?)
             _preferencesManager.GetPreferences(player.UserId).SelectedCharacter))
             return false;
@@ -296,7 +295,7 @@ public sealed partial class PlayTimeTrackingSystem : EntitySystem
             playTimes,
             out _,
             EntityManager,
-            _prototypes,
+            ProtoMan,
             (HumanoidCharacterProfile?)
             _preferencesManager.GetPreferences(player.UserId).SelectedCharacter))
             return false;
@@ -325,7 +324,7 @@ public sealed partial class PlayTimeTrackingSystem : EntitySystem
 
         // Begin DEN: Use PlayerRequirements
         var context = _requirements.GetPlayerContext(player);
-        foreach (var job in _prototypes.EnumeratePrototypes<JobPrototype>())
+        foreach (var job in ProtoMan.EnumeratePrototypes<JobPrototype>())
         {
             if (IsJobAllowed(player, job, context))
                 roles.Add(job.ID);
@@ -352,7 +351,7 @@ public sealed partial class PlayTimeTrackingSystem : EntitySystem
         var context = _requirements.GetPlayerContext(player);
         for (var i = 0; i < jobs.Count; i++)
         {
-            if (_prototypes.Resolve(jobs[i], out var job) && IsJobAllowed(player, job, context))
+            if (ProtoMan.Resolve(jobs[i], out var job) && IsJobAllowed(player, job, context))
                 continue;
             // End DEN
 

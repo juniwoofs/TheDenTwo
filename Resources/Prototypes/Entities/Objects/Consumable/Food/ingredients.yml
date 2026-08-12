@@ -701,13 +701,16 @@
       reagents:
       - ReagentId: Butter
         Quantity: 30
+  # macro edit start - allow ungu to eat
+  - type: Tag
+    tags:
+    - UnguFood
+    - NFButterStick # Frontier
+  # macro edit end
   - type: ToolRefinable
     refineResult:
     - id: FoodButterSlice
       amount: 12
-  - type: Tag # Frontier
-    tags:
-    - NFButterStick
 
 - type: entity
   parent: [SolutionVeryTiny, FoodBakingMixableBase]
@@ -728,6 +731,7 @@
   - type: Tag
     tags:
     - Slice
+    - UnguFood # macro edit - allow ungu to eat
 
 - type: entity
   name: stick of cannabis butter
@@ -747,6 +751,11 @@
         Quantity: 15
   - type: Extractable
     grindableSolutionName: food
+  # macro edit start - allow ungu to eat
+  - type: Tag
+    tags:
+    - UnguFood
+  # macro edit end
 
 - type: entity
   name: cheese wheel
@@ -761,6 +770,11 @@
       - cheesy
   - type: Sprite
     state: cheesewheel
+  # macro edit start - allow ungu to eat
+  - type: Tag
+    tags:
+    - UnguFood
+  # macro edit end
   - type: ToolRefinable
     refineResult:
     - id: FoodCheeseSlice
@@ -790,6 +804,7 @@
   - type: Tag
     tags:
     - Slice
+    - UnguFood # macro edit - allow ungu to eat
   - type: FoodSequenceElement
     entries:
       Taco: CheeseTaco
@@ -819,6 +834,11 @@
       - creamy
   - type: Sprite
     state: chevrelog
+  # macro edit start - allow ungu to eat
+  - type: Tag
+    tags:
+    - UnguFood
+  # macro edit end
   - type: ToolRefinable
     refineResult:
     - id: FoodChevreSlice
@@ -856,6 +876,7 @@
   - type: Tag
     tags:
     - Slice
+    - UnguFood # macro edit - allow ungu to eat
 
 - type: entity
   parent: [SolutionNormal, FoodBakingBase, BaseSlicingRefinableFood]

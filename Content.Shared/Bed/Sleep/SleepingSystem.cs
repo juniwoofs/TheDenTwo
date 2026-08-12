@@ -1,4 +1,5 @@
 using Content.Shared._DEN.Language.Components;
+using Content.Shared._MACRO.Bed.Sleep;
 using Content.Shared.Actions;
 using Content.Shared.Actions.Components;
 using Content.Shared.Buckle.Components;
@@ -168,7 +169,7 @@ public sealed partial class SleepingSystem : EntitySystem
     {
         if (_unconsciousLanguageQuery.HasComp(args.LanguageEnt)) // DEN: Languages that can be spoken while asleep.
             return;
-        
+
         if (HasComp<AllowNextCritSpeechComponent>(ent))
         {
             RemCompDeferred<AllowNextCritSpeechComponent>(ent);
@@ -292,6 +293,19 @@ public sealed partial class SleepingSystem : EntitySystem
 
     private void OnStatusEffectApplied(Entity<ForcedSleepingStatusEffectComponent> ent, ref StatusEffectAppliedEvent args)
     {
+        // MACRO START: SleepTimeModifier to modify force sleep duration
+        // IF YOU ARE HERE TO ADD MORE TRYCOMPS: dont. make a new event instead.
+        if (TryComp<SleepTimeModifierComponent>(args.Target, out var sleepTimeModifier) &&
+            _statusEffect.TryGetTime(args.Target, StatusEffectForcedSleeping, out var initTime))
+        {
+            var time = initTime.EndEffectTime - initTime.StartEffectTime;
+            _statusEffect.TryUpdateStatusEffectDuration(
+                args.Target,
+                StatusEffectForcedSleeping,
+                time * sleepTimeModifier.Modifier);
+        }
+        // MACRO END
+
         // Applying state check needed so we don't add SleepingComp during
         // entity reset due to the status effect getting inserted
         if (!_gameTiming.ApplyingState)

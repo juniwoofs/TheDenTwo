@@ -8,6 +8,14 @@
   color: "#848789"
   boilingPoint: 2327.0
   meltingPoint: 660.0
+  metabolisms: # DEN: Aluminium removes aphrodisiacs
+    Metabolites:
+      effects:
+      # Five units will remove 50u of pomelustine.
+      - !type:AdjustReagent
+        reagent:  Pomelustine
+        amount: -5
+        conditions:
 
 - type: reagent
   id: Carbon

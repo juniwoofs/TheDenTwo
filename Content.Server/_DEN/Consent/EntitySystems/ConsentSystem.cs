@@ -20,7 +20,6 @@ public sealed partial class ConsentSystem : SharedConsentSystem
 {
     [Dependency] private IConsentManager _consentManager = null!;
     [Dependency] private IPlayerManager _playerManager = null!;
-    [Dependency] private IPrototypeManager _protoManager = null!;
     [Dependency] private IServerDbManager _dbManager = null!;
 
     /// <inheritdoc/>
@@ -56,7 +55,7 @@ public sealed partial class ConsentSystem : SharedConsentSystem
         foreach (var consentData in data)
         {
             // Don't add prototype IDs that don't exist.
-            if (!_protoManager.TryIndex<ConsentTogglePrototype>(consentData.ConsentId, out _))
+            if (!ProtoMan.TryIndex<ConsentTogglePrototype>(consentData.ConsentId, out _))
                 continue;
 
             toggleDictionary[consentData.ConsentId] = consentData.ConsentValue;

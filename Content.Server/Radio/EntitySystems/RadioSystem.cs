@@ -1,6 +1,8 @@
 using Content.Server._DEN.Language.EntitySystems;
 using Content.Server.Administration.Logs;
+using Content.Server.Chat.Managers;
 using Content.Server.Chat.Systems;
+using Content.Server.Ghost;
 using Content.Server.Power.Components;
 using Content.Shared._DEN.Language;
 using Content.Shared._DEN.Language.Components;
@@ -27,10 +29,11 @@ public sealed partial class RadioSystem : EntitySystem
     [Dependency] private INetManager _netMan = default!;
     [Dependency] private IReplayRecordingManager _replay = default!;
     [Dependency] private IAdminLogManager _adminLogger = default!;
-    [Dependency] private IPrototypeManager _prototype = default!;
     [Dependency] private IRobustRandom _random = default!;
     [Dependency] private ChatSystem _chat = default!;
     [Dependency] private LanguageSystem _language = default!; // DEN: Languages
+    [Dependency] private IChatManager _chatManager = default!;
+    [Dependency] private GhostSystem _ghost = default!;
     [Dependency] private EntityQuery<TelecomExemptComponent> _exemptQuery = default!;
     [Dependency] private EntityQuery<RadioTransmittableComponent> _radioLang = default!; // DEN: Languages
 
@@ -45,7 +48,7 @@ public sealed partial class RadioSystem : EntitySystem
         SubscribeLocalEvent<IntrinsicRadioReceiverComponent, RadioReceiveEvent>(OnIntrinsicReceive);
         SubscribeLocalEvent<IntrinsicRadioTransmitterComponent, EntitySpokeEvent>(OnIntrinsicSpeak);
     }
-    
+
     private void OnIntrinsicSpeak(EntityUid uid, IntrinsicRadioTransmitterComponent component, EntitySpokeEvent args)
     {
         if (args.Channel != null && component.Channels.Contains(args.Channel.ID))
@@ -54,28 +57,28 @@ public sealed partial class RadioSystem : EntitySystem
             args.Channel = null; // prevent duplicate messages from other listeners.
         }
     }
-    
+
     private void OnIntrinsicReceive(EntityUid uid, IntrinsicRadioReceiverComponent component, ref RadioReceiveEvent args)
     {
-        // DEN Start: Languages
-        if (HasComp<ActorComponent>(uid))
-        {
-            _chat.SendComplexMessageToEntity(
-                args.RadioSource,
-                uid,
-                args.LanguageEnt,
-                args.Message,
-                _prototype.Index(RadioWrapper),
-                ChatChannel.Radio,
-                args.Name,
-                args.Verb,
-                args.Speech.Bold,
-                false,
-                args.Channel.LocalizedName,
-                args.Channel.Color
-            );
-        }
-        // DEN End
+        if (!TryComp(uid, out ActorComponent? actor))
+            return;
+
+        // DEN start: languages. Follow in chat was moved inside the method below because it was ugly and bad.
+        _chat.SendComplexMessageToEntity(
+            args.RadioSource,
+            (uid, actor),
+            args.LanguageEnt,
+            args.Message,
+            ProtoMan.Index(RadioWrapper),
+            ChatChannel.Radio,
+            args.Name,
+            args.Verb,
+            args.Speech.Bold,
+            false,
+            args.Channel.LocalizedName,
+            args.Channel.Color
+        );
+        // DEN end
     }
 
     /// <summary>
@@ -92,8 +95,8 @@ public sealed partial class RadioSystem : EntitySystem
             return;
         }
         // DEN End
-        
-        SendRadioMessage(messageSource, message, _prototype.Index(channel), radioSource, escapeMarkup: escapeMarkup); // DEN: Pass Languages and complex
+
+        SendRadioMessage(messageSource, languageEnt.Value, complex, ProtoMan.Index(channel), radioSource); // DEN: Pass Languages and complex
     }
 
     /// <summary>
@@ -117,16 +120,16 @@ public sealed partial class RadioSystem : EntitySystem
         var name = evt.VoiceName;
         name = FormattedMessage.EscapeText(name);
 
-        var language = _prototype.Index(languageEnt.Comp.Language); // DEN: Languages
-        
+        var language = ProtoMan.Index(languageEnt.Comp.Language); // DEN: Languages
+
         SpeechVerbPrototype speech;
-        if (evt.SpeechVerb != null && _prototype.Resolve(evt.SpeechVerb, out var evntProto))
+        if (evt.SpeechVerb != null && ProtoMan.Resolve(evt.SpeechVerb, out var evntProto))
             speech = evntProto;
         else
             speech = _chat.GetComplexSpeechVerb(messageSource, message, language, ChatChannel.Radio); // DEN: Languages
-        
+
         var verb = Loc.GetString(_random.Pick(speech.SpeechVerbStrings)); // DEN: Languages
-        
+
         var ev = new RadioReceiveEvent(message, languageEnt, speech, name, verb, messageSource, channel, radioSource); // DEN: Languages
 
         var sendAttemptEv = new RadioSendAttemptEvent(channel, radioSource);
@@ -169,7 +172,7 @@ public sealed partial class RadioSystem : EntitySystem
 
         // DEN Start: Build wrapped and unwrapped messages for logging and replay.
         var (unwrappedMessage, wrappedMessage) = _chat.BuildComplexMessage(message,
-            _prototype.Index(RadioWrapper),
+            ProtoMan.Index(RadioWrapper),
             language,
             speech.Bold,
             language.DisplayInChat,
@@ -178,7 +181,9 @@ public sealed partial class RadioSystem : EntitySystem
             verb,
             channel.LocalizedName,
             channel.Color);
-        
+
+        Log.Debug("Radio: " + wrappedMessage);
+
         if (name != Name(messageSource))
             _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Radio message from {ToPrettyString(messageSource):user} as {name} on {channel.LocalizedName}: {unwrappedMessage}");
         else

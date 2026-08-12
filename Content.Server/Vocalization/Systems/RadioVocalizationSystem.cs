@@ -16,7 +16,6 @@ namespace Content.Server.Vocalization.Systems;
 public sealed partial class RadioVocalizationSystem : EntitySystem
 {
     [Dependency] private ChatSystem _chat = default!;
-    [Dependency] private IPrototypeManager _proto = default!;
     [Dependency] private IRobustRandom _random = default!;
     [Dependency] private InventorySystem _inventory = default!;
 
@@ -85,7 +84,7 @@ public sealed partial class RadioVocalizationSystem : EntitySystem
         if (!TryPickRandomRadioChannel(entity, out var channel))
             return false;
 
-        var radioChannel = _proto.Index(channel); // DEN: Languages
+        var radioChannel = ProtoMan.Index(channel); // DEN: Languages
         var cmplxMessage = _chat.ConvertMessageToComplex(message); // DEN: Languages
 
         // send a whisper using the radio channel prefix and whatever relevant radio channel character
