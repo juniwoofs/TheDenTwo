@@ -2,17 +2,5 @@
 
 - type: guideEntry
   id: Chitinid
-  name: Chitnid
+  name: Chitinid
   text: "/ServerInfo/_DEN/Guidebook/Mobs/Chitinid.xml"
-  maleFirstNames: NamesChitinidFirstMale
-  femaleFirstNames: NamesChitinidFirstFemale
-  sexes:
-  - Unsexed
-  - Male
-  - Female
-  defaultSoundsBySex:
-  - UnisexChitinid
-  - UnisexChitinid
-  - UnisexChitinid
-  voices:
-  - UnisexChitinid
