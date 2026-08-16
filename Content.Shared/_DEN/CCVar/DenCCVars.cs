@@ -3,7 +3,7 @@ using Robust.Shared.Configuration;
 namespace Content.Shared._DEN.CCVar;
 
 [CVarDefs]
-public sealed class DenCCVars
+public sealed partial class DenCCVars
 {
     /// <summary>
     ///     Allows the Language system to be 'disabled'. This does not actually prevent language related events from
@@ -53,7 +53,7 @@ public sealed class DenCCVars
     /// </summary>
     public static readonly CVarDef<HideLanguageFontSetting> HideLanguageFonts =
         CVarDef.Create("languages.hide_fonts", HideLanguageFontSetting.None, CVar.CLIENTONLY | CVar.ARCHIVE);
-  
+
     /// <summary>
     /// Stops the server from sending the station broadcast about people cryoing to this client.
     /// </summary>

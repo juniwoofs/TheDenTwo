@@ -1,0 +1,81 @@
+- type: marking
+  id: FelinidEarsBasic
+  bodyPart: HeadTop
+  groupWhitelist: [Human]
+  sprites:
+  - sprite: _DEN/Mobs/Customization/Human/felinid_ears.rsi
+    state: basic_outer
+  - sprite:  _DEN/Mobs/Customization/Human/felinid_ears.rsi
+    state: basic_inner
+
+- type: marking
+  id: FelinidEarsCurled
+  bodyPart: HeadTop
+  groupWhitelist: [Human]
+  sprites:
+  - sprite: _DEN/Mobs/Customization/Human/felinid_ears.rsi
+    state: curled_outer
+  - sprite: _DEN/Mobs/Customization/Human/felinid_ears.rsi
+    state: curled_inner
+
+- type: marking
+  id: FelinidEarsDroopy
+  bodyPart: HeadTop
+  groupWhitelist: [Human]
+  sprites:
+  - sprite: _DEN/Mobs/Customization/Human/felinid_ears.rsi
+    state: droopy_outer
+  - sprite: _DEN/Mobs/Customization/Human/felinid_ears.rsi
+    state: droopy_inner
+
+- type: marking
+  id: FelinidEarsFuzzy
+  bodyPart: HeadTop
+  groupWhitelist: [Human]
+  sprites:
+  - sprite: _DEN/Mobs/Customization/Human/felinid_ears.rsi
+    state: basic_outer
+  - sprite: _DEN/Mobs/Customization/Human/felinid_ears.rsi
+    state: fuzzy_inner
+
+- type: marking
+  id: FelinidEarsStubby
+  bodyPart: HeadTop
+  groupWhitelist: [Human]
+  sprites:
+  - sprite: _DEN/Mobs/Customization/Human/felinid_ears.rsi
+    state: stubby_outer
+  - sprite: _DEN/Mobs/Customization/Human/felinid_ears.rsi
+    state: stubby_inner
+
+- type: marking
+  id: FelinidEarsTall
+  bodyPart: HeadTop
+  groupWhitelist: [Human]
+  sprites:
+  - sprite: _DEN/Mobs/Customization/Human/felinid_ears.rsi
+    state: tall_outer
+  - sprite: _DEN/Mobs/Customization/Human/felinid_ears.rsi
+    state: tall_inner
+  - sprite: _DEN/Mobs/Customization/Human/felinid_ears.rsi
+    state: tall_fuzz
+
+- type: marking
+  id: FelinidEarsTorn
+  bodyPart: HeadTop
+  groupWhitelist: [Human]
+  sprites:
+  - sprite: _DEN/Mobs/Customization/Human/felinid_ears.rsi
+    state: torn_outer
+  - sprite: _DEN/Mobs/Customization/Human/felinid_ears.rsi
+    state: torn_inner
+
+- type: marking
+  id: FelinidEarsWide
+  bodyPart: HeadTop
+  groupWhitelist: [Human]
+  sprites:
+  - sprite: _DEN/Mobs/Customization/Human/felinid_ears.rsi
+    state: wide_outer
+  - sprite: _DEN/Mobs/Customization/Human/felinid_ears.rsi
+    state: wide_inner

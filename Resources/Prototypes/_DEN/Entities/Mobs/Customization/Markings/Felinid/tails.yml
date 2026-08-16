@@ -1,0 +1,93 @@
+- type: marking
+  id: FelinidTailBasic
+  bodyPart: Tail
+  groupWhitelist: [Human]
+  sprites:
+  - sprite: _DEN/Mobs/Customization/Human/felinid_tails.rsi
+    state: basic_tail_tip
+  - sprite: _DEN/Mobs/Customization/Human/felinid_tails.rsi
+    state: basic_tail_stripes_even
+  - sprite: _DEN/Mobs/Customization/Human/felinid_tails.rsi
+    state: basic_tail_stripes_odd
+
+- type: marking
+  id: FelinidTailBasicWithBow
+  bodyPart: Tail
+  groupWhitelist: [Human]
+  sprites:
+  - sprite: _DEN/Mobs/Customization/Human/felinid_tails.rsi
+    state: basic_tail_tip
+  - sprite: _DEN/Mobs/Customization/Human/felinid_tails.rsi
+    state: basic_tail_stripes_even
+  - sprite: _DEN/Mobs/Customization/Human/felinid_tails.rsi
+    state: basic_tail_stripes_odd
+  - sprite: _DEN/Mobs/Customization/Human/felinid_tails.rsi
+    state: basic_bow
+
+- type: marking
+  id: FelinidTailBasicWithBell
+  bodyPart: Tail
+  groupWhitelist: [Human]
+  sprites:
+  - sprite: _DEN/Mobs/Customization/Human/felinid_tails.rsi
+    state: basic_tail_tip
+  - sprite: _DEN/Mobs/Customization/Human/felinid_tails.rsi
+    state: basic_tail_stripes_even
+  - sprite: _DEN/Mobs/Customization/Human/felinid_tails.rsi
+    state: basic_tail_stripes_odd
+  - sprite: _DEN/Mobs/Customization/Human/felinid_tails.rsi
+    state: basic_bell
+
+- type: marking
+  id: FelinidTailBasicWithBowAndBell
+  bodyPart: Tail
+  groupWhitelist: [Human]
+  sprites:
+  - sprite: _DEN/Mobs/Customization/Human/felinid_tails.rsi
+    state: basic_tail_tip
+  - sprite: _DEN/Mobs/Customization/Human/felinid_tails.rsi
+    state: basic_tail_stripes_even
+  - sprite: _DEN/Mobs/Customization/Human/felinid_tails.rsi
+    state: basic_tail_stripes_odd
+  - sprite: _DEN/Mobs/Customization/Human/felinid_tails.rsi
+    state: basic_bow
+  - sprite: _DEN/Mobs/Customization/Human/felinid_tails.rsi
+    state: basic_bell
+
+- type: marking
+  id: FelinidFluffyTail
+  bodyPart: Tail
+  groupWhitelist: [Human]
+  sprites:
+  - sprite: _DEN/Mobs/Customization/Human/felinid_tails.rsi
+    state: Felinid_fluffy_tail_full
+
+- type: marking
+  id: FelinidFluffyTailRings
+  bodyPart: Tail
+  groupWhitelist: [Human]
+  sprites:
+  - sprite: _DEN/Mobs/Customization/Human/felinid_tails.rsi
+    state: Felinid_fluffy_tail_full
+  - sprite: _DEN/Mobs/Customization/Human/felinid_tails.rsi
+    state: felinid_fluffy_tail_rings
+
+- type: marking
+  id: FelinidAlternativeTail
+  bodyPart: Tail
+  groupWhitelist: [Human]
+  sprites:
+    - sprite: _DEN/Mobs/Customization/Human/felinid_tails.rsi
+      state: m_waggingtail_cat_FRONT
+
+- type: marking
+  id: FelinidTiger
+  bodyPart: Tail
+  groupWhitelist: [Human]
+  sprites:
+    - sprite: _DEN/Mobs/Customization/Human/felinid_tails.rsi
+      state: m_tail_tiger_primary
+    - sprite: _DEN/Mobs/Customization/Human/felinid_tails.rsi
+      state: m_tail_tiger_secondary
+    - sprite: _DEN/Mobs/Customization/Human/felinid_tails.rsi
+      state: m_tail_tiger_tertiary

@@ -1,4 +1,3 @@
-# Oni Horns
 # Tall Curved
 marking-OniHornTallCurved = Tall Curved
 marking-OniHornTallCurved-tall_curved = Tall Curved
@@ -229,9 +228,3 @@ marking-OniHornBull-bull = Bull
 # Shaved
 marking-OniHornShaved = Shaved
 marking-OniHornShaved-shaved = Shaved
-
-# Oni Feet
-
-# Two Toed
-marking-OniTwoToedFeet = Two Toed
-marking-OniTwoToedFeet-two_toes = Two Toed

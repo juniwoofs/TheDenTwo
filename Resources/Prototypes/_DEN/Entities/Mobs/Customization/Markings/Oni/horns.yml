@@ -392,6 +392,7 @@
 - type: marking
   id: OniHornErebia
   #parent: BaseHornsMarking #TheDenTwo | No heritance
+  bodyPart: HeadTop
   sprites:
   - sprite: _DEN/Mobs/Customization/Human/oni_horns.rsi
     state: erebia

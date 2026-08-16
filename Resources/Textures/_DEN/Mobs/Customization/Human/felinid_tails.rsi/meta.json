@@ -1,0 +1,355 @@
+{
+    "version": 1,
+    "copyright": "basic_bell/basic_bow/basic_tail_stripes_even/basic_tail_stripes_odd/basic_tail_tip by @Vordenburg m_waggingtail_cat_FRONT Taken from https://github.com/tgstation/tgstation/pull/56750/files from TGstation felinid_fluffy_tail_rings/Felinid_fluffy_tail_full by Adrian16199 m_tail_tiger_primary/m_tail_tiger_secondary/m_tail_tiger_tertiary Taken from https://github.com/Bubberstation/Bubberstation/commit/4485ffb39b8c824167ef23a217bfe335b545778a on Bubberstation fork.",
+    "license": "CC-BY-SA-4.0",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "basic_tail_tip",
+            "directions": 4,
+            "delays": [
+                [
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2
+                ],
+                [
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2
+                ],
+                [
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2
+                ],
+                [
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2
+                ]
+            ]
+        },
+        {
+            "name": "basic_tail_stripes_even",
+            "directions": 4,
+            "delays": [
+                [
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2
+                ],
+                [
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2
+                ],
+                [
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2
+                ],
+                [
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2
+                ]
+            ]
+        },
+        {
+            "name": "basic_tail_stripes_odd",
+            "directions": 4,
+            "delays": [
+                [
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2
+                ],
+                [
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2
+                ],
+                [
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2
+                ],
+                [
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2
+                ]
+            ]
+        },
+        {
+            "name": "basic_bow",
+            "directions": 4,
+            "delays": [
+                [
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2
+                ],
+                [
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2
+                ],
+                [
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2
+                ],
+                [
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2
+                ]
+            ]
+        },
+        {
+            "name": "basic_bell",
+            "directions": 4,
+            "delays": [
+                [
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2
+                ],
+                [
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2
+                ],
+                [
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2
+                ],
+                [
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2
+                ]
+            ]
+        },
+        {
+            "name": "m_waggingtail_cat_FRONT",
+      "directions": 4,
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+        ]
+        },
+        {
+            "name": "felinid_fluffy_tail_rings",
+            "directions": 4,
+            "delays": [
+                [
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2
+                ],
+                [
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2
+                ],
+                [
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2
+                ],
+                [
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2
+                ]
+            ]
+        },
+        {
+            "name": "Felinid_fluffy_tail_full",
+            "directions": 4,
+            "delays": [
+                [
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2
+                ],
+                [
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2
+                ],
+                [
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2
+                ],
+                [
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2
+                ]
+            ]
+        },
+        {
+        "name": "m_tail_tiger_primary",
+        "directions": 4
+      },
+      {
+        "name": "m_tail_tiger_secondary",
+        "directions": 4
+      },
+      {
+        "name": "m_tail_tiger_tertiary",
+        "directions": 4
+      }
+    ]
+}

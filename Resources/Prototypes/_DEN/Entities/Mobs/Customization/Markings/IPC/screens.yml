@@ -1,0 +1,388 @@
+- type: marking
+  groupWhitelist: [ ] #IPC
+  id: ScreenCovering
+  bodyPart: SnoutCover #previously Face
+  sprites:
+    - sprite: _DEN/Mobs/Customization/IPC/ipc_screens.rsi
+      state: ipc_screen_covering
+  coloring:
+    default:
+      type:
+        !type:SkinColoring
+      fallbackTypes:
+        - !type:SimpleColoring
+            color: "#EEEEEE"
+
+#  IPC "Visor" ported and edited from Hyperstation (SS13).
+# I was originally gonna add all 6 colors, but they seemed redundant in favor of just making one recolorable visor.
+- type: marking
+  groupWhitelist: [ ] #IPC
+  id: ScreenVisorRecolorable
+  bodyPart: SnoutCover #previously Face
+  sprites:
+    - sprite: _DEN/Mobs/Customization/IPC/ipc_screen_visors.rsi
+      state: ipc_screen_visor_background
+    - sprite: _DEN/Mobs/Customization/IPC/ipc_screen_visors.rsi
+      state: ipc_screen_visor_eyes
+  #coloring:
+  #  layers:
+  #    ipc_screen_visor_background:
+  #      type:
+  #        !type:SimpleColoring
+  #          color: "#EEEEEE"
+  #    ipc_screen_visor_eyes:
+  #      type:
+  #        !type:SimpleColoring
+  #          color: "#111111"
+
+- type: marking
+  id: ScreenStatic
+  bodyPart: SnoutCover #previously Face
+  groupWhitelist: [ ] #should be IPC
+  sprites:
+    - sprite: _EE/Mobs/Customization/ipc_screens.rsi
+      state: ipc_screen_static
+      #shader: unshaded
+
+- type: marking
+  bodyPart: SnoutCover #previously Face
+  groupWhitelist: [ ] #should be IPC
+  id: ScreenBlue
+  sprites:
+    - sprite: _EE/Mobs/Customization/ipc_screens.rsi
+      state: ipc_screen_blue
+      #shader: unshaded
+
+- type: marking
+  bodyPart: SnoutCover #previously Face
+  groupWhitelist: [ ] #should be IPC
+  id: ScreenBreakout
+  sprites:
+    - sprite: _EE/Mobs/Customization/ipc_screens.rsi
+      state: ipc_screen_breakout
+      #shader: unshaded
+
+- type: marking
+  bodyPart: SnoutCover #previously Face
+  groupWhitelist: [ ] #should be IPC
+  id: ScreenEight
+  sprites:
+    - sprite: _EE/Mobs/Customization/ipc_screens.rsi
+      state: ipc_screen_eight
+      #shader: unshaded
+
+- type: marking
+  bodyPart: SnoutCover #previously Face
+  groupWhitelist: [ ] #should be IPC
+  id: ScreenGoggles
+  sprites:
+    - sprite: _EE/Mobs/Customization/ipc_screens.rsi
+      state: ipc_screen_goggles
+      #shader: unshaded
+
+- type: marking
+  bodyPart: SnoutCover #previously Face
+  groupWhitelist: [ ] #should be IPC
+  id: ScreenExclaim
+  sprites:
+    - sprite: _EE/Mobs/Customization/ipc_screens.rsi
+      state: ipc_screen_exclaim
+      #shader: unshaded
+
+- type: marking
+  bodyPart: SnoutCover #previously Face
+  groupWhitelist: [ ] #should be IPC
+  id: ScreenHeart
+  sprites:
+    - sprite: _EE/Mobs/Customization/ipc_screens.rsi
+      state: ipc_screen_heart
+      #shader: unshaded
+
+- type: marking
+  bodyPart: SnoutCover #previously Face
+  groupWhitelist: [ ] #should be IPC
+  id: ScreenMonoeye
+  sprites:
+    - sprite: _EE/Mobs/Customization/ipc_screens.rsi
+      state: ipc_screen_monoeye
+      #shader: unshaded
+
+- type: marking
+  bodyPart: SnoutCover #previously Face
+  groupWhitelist: [ ] #should be IPC
+  id: ScreenNature
+  sprites:
+    - sprite: _EE/Mobs/Customization/ipc_screens.rsi
+      state: ipc_screen_nature
+      #shader: unshaded
+
+- type: marking
+  bodyPart: SnoutCover #previously Face
+  groupWhitelist: [ ] #should be IPC
+  id: ScreenOrange
+  sprites:
+    - sprite: _EE/Mobs/Customization/ipc_screens.rsi
+      state: ipc_screen_orange
+      #shader: unshaded
+
+- type: marking
+  bodyPart: SnoutCover #previously Face
+  groupWhitelist: [ ] #should be IPC
+  id: ScreenPink
+  sprites:
+    - sprite: _EE/Mobs/Customization/ipc_screens.rsi
+      state: ipc_screen_pink
+      #shader: unshaded
+
+- type: marking
+  bodyPart: SnoutCover #previously Face
+  groupWhitelist: [ ] #should be IPC
+  id: ScreenQuestion
+  sprites:
+    - sprite: _EE/Mobs/Customization/ipc_screens.rsi
+      state: ipc_screen_question
+      #shader: unshaded
+
+- type: marking
+  bodyPart: SnoutCover #previously Face
+  groupWhitelist: [ ] #should be IPC
+  id: ScreenShower
+  sprites:
+    - sprite: _EE/Mobs/Customization/ipc_screens.rsi
+      state: ipc_screen_shower
+      #shader: unshaded
+
+- type: marking
+  bodyPart: SnoutCover #previously Face
+  groupWhitelist: [ ] #should be IPC
+  id: ScreenYellow
+  sprites:
+    - sprite: _EE/Mobs/Customization/ipc_screens.rsi
+      state: ipc_screen_yellow
+      #shader: unshaded
+
+- type: marking
+  bodyPart: SnoutCover #previously Face
+  groupWhitelist: [ ] #should be IPC
+  id: ScreenScroll
+  sprites:
+    - sprite: _EE/Mobs/Customization/ipc_screens.rsi
+      state: ipc_screen_scroll
+      #shader: unshaded
+
+- type: marking
+  bodyPart: SnoutCover #previously Face
+  groupWhitelist: [ ] #should be IPC
+  id: ScreenConsole
+  sprites:
+    - sprite: _EE/Mobs/Customization/ipc_screens.rsi
+      state: ipc_screen_console
+      #shader: unshaded
+
+- type: marking
+  bodyPart: SnoutCover #previously Face
+  groupWhitelist: [ ] #should be IPC
+  id: ScreenRgb
+  sprites:
+    - sprite: _EE/Mobs/Customization/ipc_screens.rsi
+      state: ipc_screen_rgb
+      #shader: unshaded
+
+- type: marking
+  bodyPart: SnoutCover #previously Face
+  groupWhitelist: [ ] #should be IPC
+  id: ScreenGlider
+  sprites:
+    - sprite: _EE/Mobs/Customization/ipc_screens.rsi
+      state: ipc_screen_glider
+      #shader: unshaded
+
+- type: marking
+  bodyPart: SnoutCover #previously Face
+
+  groupWhitelist: [ ] #should be IPC
+  id: ScreenRainbowhoriz
+  sprites:
+    - sprite: _EE/Mobs/Customization/ipc_screens.rsi
+      state: ipc_screen_rainbowhoriz
+      #shader: unshaded
+
+- type: marking
+  bodyPart: SnoutCover #previously Face
+  groupWhitelist: [ ] #should be IPC
+  id: ScreenBsod
+  sprites:
+    - sprite: _EE/Mobs/Customization/ipc_screens.rsi
+      state: ipc_screen_bsod
+      #shader: unshaded
+
+- type: marking
+  bodyPart: SnoutCover #previously Face
+  groupWhitelist: [ ] #should be IPC
+  id: ScreenRedtext
+  sprites:
+    - sprite: _EE/Mobs/Customization/ipc_screens.rsi
+      state: ipc_screen_redtext
+      #shader: unshaded
+
+- type: marking
+  bodyPart: SnoutCover #previously Face
+  groupWhitelist: [ ] #should be IPC
+  id: ScreenSinewave
+  sprites:
+    - sprite: _EE/Mobs/Customization/ipc_screens.rsi
+      state: ipc_screen_sinewave
+      #shader: unshaded
+
+- type: marking
+  bodyPart: SnoutCover #previously Face
+  groupWhitelist: [ ] #should be IPC
+  id: ScreenSquarewave
+  sprites:
+    - sprite: _EE/Mobs/Customization/ipc_screens.rsi
+      state: ipc_screen_squarewave
+      #shader: unshaded
+
+- type: marking
+  bodyPart: SnoutCover #previously Face
+  groupWhitelist: [ ] #should be IPC
+  id: ScreenEcgwave
+  sprites:
+    - sprite: _EE/Mobs/Customization/ipc_screens.rsi
+      state: ipc_screen_ecgwave
+      #shader: unshaded
+
+- type: marking
+  bodyPart: SnoutCover #previously Face
+  groupWhitelist: [ ] #should be IPC
+  id: ScreenEyes
+  sprites:
+    - sprite: _EE/Mobs/Customization/ipc_screens.rsi
+      state: ipc_screen_eyes
+      #shader: unshaded
+
+- type: marking
+  bodyPart: SnoutCover #previously Face
+  groupWhitelist: [ ] #should be IPC
+  id: ScreenEyestall
+  sprites:
+    - sprite: _EE/Mobs/Customization/ipc_screens.rsi
+      state: ipc_screen_eyestall
+      #shader: unshaded
+
+- type: marking
+  bodyPart: SnoutCover #previously Face
+  groupWhitelist: [ ] #should be IPC
+  id: ScreenEyesangry
+  sprites:
+    - sprite: _EE/Mobs/Customization/ipc_screens.rsi
+      state: ipc_screen_eyesangry
+      #shader: unshaded
+
+- type: marking
+  bodyPart: SnoutCover #previously Face
+  groupWhitelist: [ ] #should be IPC
+  id: ScreenLoading
+  sprites:
+    - sprite: _EE/Mobs/Customization/ipc_screens.rsi
+      state: ipc_screen_loading
+      #shader: unshaded
+
+- type: marking
+  bodyPart: SnoutCover #previously Face
+  groupWhitelist: [ ] #should be IPC
+  id: ScreenWindowsxp
+  sprites:
+    - sprite: _EE/Mobs/Customization/ipc_screens.rsi
+      state: ipc_screen_windowsxp
+      #shader: unshaded
+
+- type: marking
+  bodyPart: SnoutCover #previously Face
+  groupWhitelist: [ ] #should be IPC
+  id: ScreenTetris
+  sprites:
+    - sprite: _EE/Mobs/Customization/ipc_screens.rsi
+      state: ipc_screen_tetris
+      #shader: unshaded
+
+- type: marking
+  bodyPart: SnoutCover #previously Face
+  groupWhitelist: [ ] #should be IPC
+  id: ScreenTv
+  sprites:
+    - sprite: _EE/Mobs/Customization/ipc_screens.rsi
+      state: ipc_screen_tv
+      #shader: unshaded
+
+- type: marking
+  bodyPart: SnoutCover #previously Face
+  groupWhitelist: [ ] #should be IPC
+  id: ScreenTextdrop
+  sprites:
+    - sprite: _EE/Mobs/Customization/ipc_screens.rsi
+      state: ipc_screen_textdrop
+      #shader: unshaded
+
+- type: marking
+  bodyPart: SnoutCover #previously Face
+  groupWhitelist: [ ] #should be IPC
+  id: ScreenStars
+  sprites:
+    - sprite: _EE/Mobs/Customization/ipc_screens.rsi
+      state: ipc_screen_stars
+      #shader: unshaded
+
+- type: marking
+  bodyPart: SnoutCover #previously Face
+  groupWhitelist: [ ] #should be IPC
+  id: ScreenRainbowdiag
+  sprites:
+    - sprite: _EE/Mobs/Customization/ipc_screens.rsi
+      state: ipc_screen_rainbowdiag
+      #shader: unshaded
+
+- type: marking
+  bodyPart: SnoutCover #previously Face
+  groupWhitelist: [ ] #should be IPC
+  id: ScreenBlank
+  sprites:
+    - sprite: _EE/Mobs/Customization/ipc_screens.rsi
+      state: ipc_screen_blank
+      #shader: unshaded
+
+- type: marking
+  bodyPart: SnoutCover #previously Face
+  groupWhitelist: [ ] #should be IPC
+  id: ScreenSmile
+  sprites:
+    - sprite: _EE/Mobs/Customization/ipc_screens.rsi
+      state: ipc_screen_smile
+      #shader: unshaded
+
+- type: marking
+  bodyPart: SnoutCover #previously Face
+  groupWhitelist: [ ] #should be IPC
+  id: ScreenFrown
+  sprites:
+    - sprite: _EE/Mobs/Customization/ipc_screens.rsi
+      state: ipc_screen_frown
+      #shader: unshaded
+
+- type: marking
+  bodyPart: SnoutCover #previously Face
+  groupWhitelist: [ ] #should be IPC
+  id: ScreenRing
+  sprites:
+    - sprite: _EE/Mobs/Customization/ipc_screens.rsi
+      state: ipc_screen_ring
+      #shader: unshaded
+
+- type: marking
+  bodyPart: SnoutCover #previously Face
+  groupWhitelist: [ ] #should be IPC
+  id: ScreenL
+  sprites:
+    - sprite: _EE/Mobs/Customization/ipc_screens.rsi
+      state: ipc_screen_l
+      #shader: unshaded
